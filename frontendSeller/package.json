@@ -15,7 +15,7 @@
     "react-transition-group": "^4.4.5"
   },
   "scripts": {
-    "s": "react-scripts start",
+    "s": "set PORT=3666 && react-scripts start",
     "b": "react-scripts build",
     "t": "react-scripts test",
     "e": "react-scripts eject"

@@ -51,6 +51,7 @@
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.3.0",
     "semver": "^7.3.5",
+    "set": "^1.1.1",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.2",
@@ -61,7 +62,7 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "s": "node scripts/start.js",
+    "s": "node scripts/start.js 3555",
     "b": "node scripts/build.js",
     "t": "node scripts/test.js",
     "e": "node scripts/eject.js"
