@@ -2000,3 +2000,5 @@
 20231002	02:28:08	b44b8076-2dd5-488c-bc79-1aeb44c37816	POST	/cafe	http://localhost:3000
 20231002	02:29:05	4518562d-6658-464c-b2cb-b6b6575acea5	OPTIONS	/cafe	http://localhost:3000
 20231002	02:29:05	a5f765f9-2d22-4365-ab03-15e96069f5a8	POST	/cafe	http://localhost:3000
+20231002	08:12:15	8a649650-d517-447d-8053-ca89e1c1751f	GET	/?vscodeBrowserReqId=1696234289939	undefined
+20231002	08:12:15	631ec1e5-b0d9-42dd-98b3-b8ced47fffec	GET	/css/style.css	undefined
