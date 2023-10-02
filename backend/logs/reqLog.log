@@ -2024,3 +2024,7 @@
 20231002	17:14:35	4d2c7100-720e-4a2c-a88c-c64a39ca63cf	GET	/css/style.css	undefined
 20231002	17:15:14	6d6bea10-e35e-4741-8e71-54b6c8e579f4	GET	/	undefined
 20231002	17:15:14	3daf1ef1-a453-4121-800e-b5edd6fc7ccb	GET	/css/style.css	undefined
+20231002	17:30:40	300e147d-e319-4772-8119-7800a286abc3	OPTIONS	/auth	http://localhost:3000
+20231002	17:30:40	aa787598-8ebe-455e-816c-dd6b214e2549	POST	/auth	http://localhost:3000
+20231002	17:30:41	5c315268-797e-421f-aba1-715f23b362ab	GET	/cafe	http://localhost:3000
+20231002	17:30:41	5d5f5baa-80ff-4a4c-986d-7a28d86c0267	GET	/cafe	http://localhost:3000
