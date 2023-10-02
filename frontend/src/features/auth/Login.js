@@ -47,14 +47,14 @@ const Login = () => {
 	};
 
 	return (
-		<div className="flex page bg-slate-100 font-Poppins">
+		<div className="flex page bg-gradient-to-r from-slate-200 to-slate-400 font-Poppins">
 			<img src="https://i.pinimg.com/750x/0a/d3/41/0ad341e9715994f5b7266e0a5062a46a.jpg" alt="" className="h-screen drop-shadow-lg" />
 
-			<div className="flex justify-center items-start flex-col m-auto">
-				<h1 className="font-bold text-5xl text-center mb-10">Sign In</h1>
-				<form action="" className="flex justify-center items-start flex-col gap-10 drop-shadow-lg rounded-lg w-96 mb-4" onSubmit={handleSubmit}>
+			<div className="flex flex-col items-start justify-center m-auto">
+				<h1 className="mb-10 text-5xl font-bold text-center">Sign In</h1>
+				<form action="" className="flex flex-col items-start justify-center gap-8 mb-4 rounded-3xl drop-shadow-lg w-96" onSubmit={handleSubmit}>
 					<div className="relative w-full">
-						<input id="username" type="text" value={username} onChange={handleUsernameChange} className="border border-gray-300 w-full py-2 px-3 rounded-xl focus:border-black focus:outline-none" required />
+						<input id="username" type="text" value={username} onChange={handleUsernameChange} className="w-full px-3 py-2 border border-gray-300 rounded-3xl focus:border-black focus:outline-none" required />
 						<label
 							htmlFor=""
 							className={`absolute left-3 ${username ? '-top-6 left-1 text-black text-s font-medium' : 'top-2 text-gray-500'} transition-all duration-200`}
@@ -66,7 +66,7 @@ const Login = () => {
 						</label>
 					</div>
 					<div className="relative w-full">
-						<input id="password" value={password} onChange={handlePasswordChange} type="password" className="border border-gray-300 w-full py-2 px-3 rounded-xl focus:border-black focus:outline-none" required />
+						<input id="password" value={password} onChange={handlePasswordChange} type="password" className="w-full px-3 py-2 border border-gray-300 rounded-3xl focus:border-black focus:outline-none" required />
 						<label
 							htmlFor=""
 							className={`absolute left-3 ${password ? '-top-6 left-1 text-black text-s font-medium' : 'top-2 text-gray-500'} transition-all duration-200`}
@@ -77,11 +77,11 @@ const Login = () => {
 							{password ? 'Password' : 'Password'}
 						</label>
 					</div>
-					<input type="submit" value="Sign In" className="rounded-3xl w-full px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300 font-medium" />
+					<input type="submit" value="Sign In" className="w-32 px-3 py-2 m-auto font-medium transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700" />
 				</form>
-				<p className="text-center text-sm mt-4">
+				<p className="w-full text-sm text-center px-3py-2">
 					Don't have an account?{' '}
-					<Link to="signup" className="underline underline-offset-2 font-medium">
+					<Link to="signup" className="text-sm font-medium underline hover:text-[15px] mt-4 hover:mt-8 underline-offset-2 ">
 						Sign Up
 					</Link>
 				</p>
