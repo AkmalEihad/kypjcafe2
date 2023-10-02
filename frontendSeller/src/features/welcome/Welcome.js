@@ -10,7 +10,11 @@ const Welcome = () => {
 				<Header/>
 				{ <div className="flex justify-center items-center mt-20">
 					<div className="mr-4">
+<<<<<<< HEAD
 						<h1 className="text-6xl font-bold">Welcome To KYPJ Cafe (SELLER)</h1>
+=======
+						<h1 className="text-6xl font-bold">Welcome Toooooo KYPJ Cafe</h1>
+>>>>>>> refs/remotes/origin/main
 						<p className="text-xl text-black">Nak makan tapi malas nak menunggu, malas nak beratur, orang ramai?!</p>
 						<p className="text-xl text-black">Kini tidak lagi. Jom buat pesanan tanpa beratur</p>
 						<a href="#cafe">
