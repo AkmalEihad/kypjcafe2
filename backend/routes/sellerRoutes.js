@@ -7,4 +7,7 @@ router.route('/')
     .post(sellerController.createSeller)
     .patch(sellerController.updateSeller)
 
+router.route('/:seller_id')
+    .get(sellerController.getSellerById)
+
 module.exports = router

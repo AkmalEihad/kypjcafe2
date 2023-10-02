@@ -11,6 +11,18 @@ const getAllSellers = asyncHandler(async (req, res) => {
 	res.json(allSeller.rows);
 })
 
+const getSellerById = asyncHandler(async (req, res) => {
+	const { seller_id } = req.params
+
+	const getSellerQuery = 'SELECT *FROM Seller WHERE seller_id = $1'
+	const getSeller = await pool.query(getSellerQuery, [seller_id])
+
+	if(!getSeller.rows.length) {
+		return res.status(400).json({ message: 'No seller found'})
+	}
+	res.json(getSeller.rows)
+})
+
 const createSeller = asyncHandler(async (req, res) => {
     const { seller_username, seller_name, seller_password, seller_email } = req.body;
 
@@ -63,7 +75,7 @@ const updateSeller = asyncHandler(async (req, res) => {
 	}
 
 	// Update the user
-	const updatedSellerQuery = 'UPDATE Customer SET seller_username = $1, seller_password = $2, seller_email = $3, seller_name = $4 WHERE seller_id = $5 RETURNING *';
+	const updatedSellerQuery = 'UPDATE Seller SET seller_username = $1, seller_password = $2, seller_email = $3, seller_name = $4 WHERE seller_id = $5 RETURNING *';
 	const updatedSeller = await pool.query(updatedSellerQuery, [seller_username, seller_password, seller_email, seller_name, seller_id]);
 
 	res.json({ message: `${seller_username} updated` });
@@ -71,6 +83,7 @@ const updateSeller = asyncHandler(async (req, res) => {
 
 module.exports = {
     getAllSellers,
+	getSellerById,
     createSeller,
     updateSeller
 }
