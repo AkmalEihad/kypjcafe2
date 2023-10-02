@@ -53,7 +53,7 @@ const SignUp = () => {
 				<h1 className="font-bold text-5xl text-center mb-10">Sign Up</h1>
 				<form action="" className="grid justify-center items-center grid-rows-4 gap-10 drop-shadow-lg" onSubmit={handleSubmit}>
 					<div className="relative grid grid-cols-2 gap-4">
-						<input id="name" value={name} onChange={handleNameChange} type="text" className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none" required />
+						<input id="name" value={name} onChange={handleNameChange} type="text" className="border border-gray-300 w-full py-2 px-3 rounded-xl focus:border-black focus:outline-none" required />
 						<label
 							htmlFor=""
 							className={`absolute left-3 ${name ? '-top-6 left-1 text-black text-s font-medium' : 'top-2 text-gray-500'} transition-all duration-200`}
@@ -64,7 +64,7 @@ const SignUp = () => {
 							{name ? 'Name' : 'Name'}
 						</label>
 						<div className="relative">
-							<input id="username" value={username} onChange={handleUsernameChange} type="text" className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none" required />
+							<input id="username" value={username} onChange={handleUsernameChange} type="text" className="border border-gray-300 w-full py-2 px-3 rounded-xl focus:border-black focus:outline-none" required />
 							<label
 								htmlFor=""
 								className={`absolute left-3 ${username ? '-top-6 left-1 text-black text-s font-medium' : 'top-2 text-gray-500'} transition-all duration-200`}
@@ -77,7 +77,7 @@ const SignUp = () => {
 						</div>
 					</div>
 					<div className="relative">
-						<input id="password" value={password} onChange={handlePasswordChange} type="password" className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none" required />
+						<input id="password" value={password} onChange={handlePasswordChange} type="password" className="border border-gray-300 w-full py-2 px-3 rounded-xl focus:border-black focus:outline-none" required />
 						<label
 							htmlFor=""
 							className={`absolute left-3 ${password ? '-top-6 left-1 text-black text-s font-medium' : 'top-2 text-gray-500'} transition-all duration-200`}
@@ -89,7 +89,7 @@ const SignUp = () => {
 						</label>
 					</div>
 					<div className="relative">
-						<input id="email" value={email} onChange={handleEmailChange} type="mail" className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none" required />
+						<input id="email" value={email} onChange={handleEmailChange} type="mail" className="border border-gray-300 w-full py-2 px-3 rounded-xl focus:border-black focus:outline-none" required />
 						<label
 							htmlFor=""
 							className={`absolute left-3 ${email ? '-top-6 left-1 text-black text-s font-medium' : 'top-2 text-gray-500'} transition-all duration-200`}
@@ -102,7 +102,7 @@ const SignUp = () => {
 					</div>
 					<div className="relative">
 						{/* to do: dropdown */}
-						<input id="faculty" value={faculty} onChange={handleFacultyChange} type="text" className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none" required />
+						<input id="faculty" value={faculty} onChange={handleFacultyChange} type="text" className="border border-gray-300 w-full py-2 px-3 rounded-xl focus:border-black focus:outline-none" required />
 						<label
 							htmlFor=""
 							className={`absolute left-3 ${faculty ? '-top-6 left-1 text-black text-s font-medium' : 'top-2 text-gray-500'} transition-all duration-200`}
@@ -113,7 +113,7 @@ const SignUp = () => {
 							{faculty ? 'Faculty' : 'Faculty'}
 						</label>
 					</div>
-					<input type="submit" value="Sign Up" className="rounded w-full px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300 font-medium" />
+					<input type="submit" value="Sign Up" className="rounded-3xl w-full px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300 font-medium" />
 				</form>
 				<p className="text-center text-sm mt-4">
 					Already have an account?{' '}
