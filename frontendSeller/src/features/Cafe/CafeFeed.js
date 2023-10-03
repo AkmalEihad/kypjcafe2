@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import axios from "axios";
 
 const CafeFeed = () => {
   const [cafe_name, setCafeName] = useState("");
   const [description, setDescription] = useState("");
   const [cafe_location, setLocation] = useState("");
-  const [cafe_image_url, setImage] = useState("");
+  const [cafe_image_url, setImage] = useState();
 
   const navigate = useNavigate();
 
@@ -18,41 +19,41 @@ const CafeFeed = () => {
   const seller_id = Cookies.get("seller_id");
   console.log(seller_id);
 
+  // Inside your CafeFeed component
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const createCafe = {
-      cafe_name,
-      description,
-      cafe_location,
-      cafe_image_url,
-      seller_id,
-    };
-
     try {
-      const response = await fetch("http://localhost:3500/cafe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(createCafe),
-      });
+      const formData = new FormData()
+      formData.append('cafeImage', cafe_image_url)
+      formData.append('cafe_name', cafe_name)
+      formData.append('description', description)
+      formData.append('cafe_location', cafe_location)
+      formData.append('seller_id', seller_id)
 
-      if (response.ok) {
-        navigate("/welcome");
+
+      const response = await axios.post('http://localhost:3500/cafe/upload', formData)
+
+      if (response.status === 200 || response.status === 201) {
+        console.log("Registration successful");
+        navigate('/welcome')
+        // You can also access the response data if the server sends any.
+        console.log("Server response data:", response.data);
       } else {
-        console.log("Registration Failed!");
+        console.error("Registration failed with status code:", response.status);
       }
     } catch (error) {
       console.error("Error during registration:", error);
     }
   };
 
+
   return (
     <div id="cafe" className="flex flex-col justify-center items-center p-4">
       <h1 className="font-medium text-center text-3xl">Create Cafe</h1>
       <form
         action=""
+        encType="multipart/form-data"
         className="grid justify-center items-center grid-rows-4 gap-5 drop-shadow-lg"
         onSubmit={handleSubmit}
       >
@@ -67,11 +68,10 @@ const CafeFeed = () => {
           />
           <label
             htmlFor=""
-            className={`absolute left-3 ${
-              cafe_name
-                ? "-top-6 left-1 text-black text-s font-medium"
-                : "top-2 text-gray-500"
-            } transition-all duration-200`}
+            className={`absolute left-3 ${cafe_name
+              ? "-top-6 left-1 text-black text-s font-medium"
+              : "top-2 text-gray-500"
+              } transition-all duration-200`}
             onClick={() => {
               document.getElementById("cafe_name").focus();
             }}
@@ -90,11 +90,10 @@ const CafeFeed = () => {
           />
           <label
             htmlFor=""
-            className={`absolute left-3 ${
-              description
-                ? "-top-6 left-1 text-black text-s font-medium"
-                : "top-2 text-gray-500"
-            } transition-all duration-200`}
+            className={`absolute left-3 ${description
+              ? "-top-6 left-1 text-black text-s font-medium"
+              : "top-2 text-gray-500"
+              } transition-all duration-200`}
             onClick={() => {
               document.getElementById("description").focus();
             }}
@@ -113,11 +112,10 @@ const CafeFeed = () => {
           />
           <label
             htmlFor=""
-            className={`absolute left-3 ${
-              cafe_location
-                ? "-top-6 left-1 text-black text-s font-medium"
-                : "top-2 text-gray-500"
-            } transition-all duration-200`}
+            className={`absolute left-3 ${cafe_location
+              ? "-top-6 left-1 text-black text-s font-medium"
+              : "top-2 text-gray-500"
+              } transition-all duration-200`}
             onClick={() => {
               document.getElementById("location").focus();
             }}
@@ -136,6 +134,7 @@ const CafeFeed = () => {
           </label>
           <input
             id="image"
+            name="cafeImage"
             type="file" // Specify accepted file types if needed
             onChange={(e) => setImage(e.target.files[0])}
             className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"

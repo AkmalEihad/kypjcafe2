@@ -18,8 +18,8 @@ function App() {
       <Route path="/welcome" element={<Layout />}>
         <Route index element={<Welcome />} />
         <Route path="menu/:cafe_id" element={<MenuFeed />} />
-        <Route path="profile" element={<Profile />} />
       </Route>
+      <Route path="/profile" element={<Profile />} />
       <Route path="/change-profile" element={<ChangeProfile />} />
       <Route path="/CafeFeed" element={<CafeFeed />} />
     </Routes>

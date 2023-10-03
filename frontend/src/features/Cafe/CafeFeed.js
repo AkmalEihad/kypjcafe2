@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useFetch from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const CafeFeed = () => {
 	const { data } = useFetch('http://localhost:3500/cafe');
@@ -12,7 +13,7 @@ const CafeFeed = () => {
 				{data.map((cafe) => (
 					<Link to={`menu/${cafe.cafe_id}`} key={cafe.cafe_id}>
 						<div className="flex items-center justify-center transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105">
-							<img src={cafe.cafe_image_url} alt="" className="rounded-l-3xl w-52" />
+							<img src={`http://localhost:3500/images/${cafe.cafe_image_url}`} alt="" className="rounded-l-3xl w-52" />
 							<div className="bg-white rounded-r-3xl h-[155px] flex justify-center items-center flex-col p-4">
 								<h3 className="text-2xl font-bold">{cafe.cafe_name}</h3>
 								<p className="text-sm font-thin">{cafe.description}</p>

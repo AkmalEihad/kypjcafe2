@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const pool = require("../config/dbConn");
+const multer = require("multer");
 
 const getAllCafe = asyncHandler(async (req, res) => {
   const allCafeQuery = "SELECT * FROM Cafe";
@@ -14,7 +15,7 @@ const getAllCafe = asyncHandler(async (req, res) => {
 const createNewCafe = asyncHandler(async (req, res) => {
   try {
     const { cafe_name, cafe_location, seller_id, description } = req.body;
-    const { cafe_image_url } = req.file;
+    const cafe_image_url  = req.file.filename
     const open = true;
 
     // Validate input data
@@ -23,7 +24,7 @@ const createNewCafe = asyncHandler(async (req, res) => {
       !cafe_location ||
       !seller_id ||
       !description ||
-      !cafe_image_url
+      !cafe_image_url 
     ) {
       return res.status(400).json({ message: "All fields are required" });
     }

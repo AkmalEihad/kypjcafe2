@@ -52,7 +52,7 @@ const ChangeProfile = () => {
             });
             // Handle response as needed
             if (response.ok) {
-                navigate('/welcome/profile')
+                navigate('/profile')
             }
             else {
                 console.log("There is some error")
