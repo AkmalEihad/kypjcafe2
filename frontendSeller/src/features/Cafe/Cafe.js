@@ -34,6 +34,38 @@ const Cafe = () => {
         }
     }
 
+    const handleDelete = async (e) => {
+        e.preventDefault()
+
+        try {
+            const cafe_id = data[0].cafe_id
+            const deleteData = {
+                cafe_id
+            }
+
+            const response = await fetch('http://localhost:3500/cafe', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(deleteData),
+            })
+
+            if (response.status === 200 || response.status === 201) {
+                console.log("Delete Cafe Successful");
+                navigate('/welcome');
+                // You can also access the response data if the server sends any.
+                console.log("Server response data:", response.data);
+            } else {
+                console.error("Delete failed with status code:", response.status);
+                // Handle the error and provide user feedback
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div>
             <h1 className='text-center p-4'>Your Cafe</h1>
@@ -72,6 +104,7 @@ const Cafe = () => {
             <div>
                 <UpdateCafe />
             </div>
+            <button onClick={handleDelete} className='rounded ml-60 px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300 font-medium'>Delete Cafe</button>
         </div>
     )
 }

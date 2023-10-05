@@ -10,6 +10,7 @@ import OrderDetail from "./features/Order/OrderDetail";
 import OrderHistory from "./features/Order/OrderHistory";
 import OrderHistoryDetail from "./features/Order/OrderHistoryDetail";
 import Cafe from "./features/Cafe/Cafe";
+import CreateCafe from "./features/Cafe/CreateCafe";
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
       <Route path="/change-profile" element={<ChangeProfile />} />
       <Route path="/orderHistory" element={<OrderHistory />}/>
       <Route path="/orderHistory/:order_id" element={<OrderHistoryDetail />}/>
-      <Route path="/cafe" element={<Cafe />}/>
+      <Route path="/cafe" element={<CreateCafe />}/>
+      <Route path="/cafe/cafeDetail" element={<Cafe />}/>
       
     </Routes>
   );

@@ -15,7 +15,7 @@ const Welcome = () => {
 				<Header />
 				<div>
 					<h1 className='text-center p-4'>Your Cafe</h1>
-					<Link to={'/cafe'}>{data.map((cafe) => (
+					<Link to={'/cafe/cafeDetail'}>{data.map((cafe) => (
 						<div key={cafe.id} className="flex items-center justify-center m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
 							<img src={`http://localhost:3500/images/${cafe.cafe_image_url}`} alt="" className="max-w-full rounded-t-3xl h-52" />
 							<div className="flex flex-col items-center justify-center min-w-full p-4 bg-white card-body rounded-b-3xl">

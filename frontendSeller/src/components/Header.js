@@ -11,7 +11,7 @@ const Header = () => {
         <nav>
             <ul className='flex justify-end items-center gap-10 font-normal'>
                 <li className=''><Link to="/welcome"><AiFillHome/></Link></li>
-                <li className=''><Link to="/cafe">Cafe</Link></li>
+                <li className=''><Link to="/cafe">Create Cafe</Link></li>
                 <li className=''><Link to="/orderHistory">Order History</Link></li>
                 <li className=''><Link to="/about">About Us</Link></li>
                 <li className=''><Link to="/profile">Profile</Link></li>

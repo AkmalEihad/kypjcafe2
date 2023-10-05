@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-const CafeFeed = () => {
+const CreateCafe = () => {
   const [cafe_name, setCafeName] = useState("");
   const [description, setDescription] = useState("");
   const [cafe_location, setLocation] = useState("");
@@ -19,7 +19,7 @@ const CafeFeed = () => {
   const seller_id = Cookies.get("seller_id");
   console.log(seller_id);
 
-  // Inside your CafeFeed component
+  // Inside your CreateCafe component
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -151,4 +151,4 @@ const CafeFeed = () => {
   );
 };
 
-export default CafeFeed;
+export default CreateCafe;
