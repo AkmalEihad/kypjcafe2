@@ -1,24 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CafeFeed from '../Cafe/CafeFeed';
 import Header from '../../components/Header';
+import useFetch from '../../hooks/useFetch';
+import Cookies from 'js-cookie';
+import Order from '../Order/Order';
 
 const Welcome = () => {
+	const seller_id = Cookies.get("seller_id");
+	const { data } = useFetch(`http://localhost:3500/cafe/${seller_id}`)
+
 	return (
 		<div>
 			<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height">
-				<Header/>
-				{ <div className="flex justify-center items-center mt-20">
-					<div className="mr-4">
-						<h1 className="text-6xl font-bold">Welcome To KYPJ Cafe (SELLER)</h1>
-						<p className="text-xl text-black">Nak makan tapi malas nak menunggu, malas nak beratur, orang ramai?!</p>
-						<p className="text-xl text-black">Kini tidak lagi. Jom buat pesanan tanpa beratur</p>
-						<a href="#cafe">
-							<Link to = '/CafeFeed'><button className="transition ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-110 hover:bg-slate-800 duration-300 rounded-lg py-2 px-4 font-medium drop-shadow-lg mt-4 text-white">Order Now</button></Link>
-						</a>
-					</div>
-					<img src="https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg" alt="" className="rounded-lg drop-shadow-lg" />
-				</div> }
+				<Header />
+				<div>
+					<h1 className='text-center p-4'>Your Cafe</h1>
+					<Link to={'/cafe'}>{data.map((cafe) => (
+						<div key={cafe.id} className="flex items-center justify-center m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
+							<img src={`http://localhost:3500/images/${cafe.cafe_image_url}`} alt="" className="max-w-full rounded-t-3xl h-52" />
+							<div className="flex flex-col items-center justify-center min-w-full p-4 bg-white card-body rounded-b-3xl">
+								<h3 className="card-title">{cafe.cafe_name}</h3>
+								<p className="text-sm font-thin">{cafe.description}</p>
+								<p className="font-medium">{cafe.cafe_location}</p>
+							</div>
+						</div>
+					))}</Link>
+				</div>
+				<div className='p-4'>
+					<Order />
+				</div>
 			</div>
 		</div>
 	);

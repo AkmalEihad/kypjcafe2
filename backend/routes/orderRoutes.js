@@ -3,15 +3,19 @@ const router = express.Router()
 const orderController = require('../controllers/orderController')
 
 router.route('/')
+    .get(orderController.getAllOrder)
     .post(orderController.createOrder)
+
+router.route('/orderList')
+    .get(orderController.getOrderDetailForSeller)
 
 router.route('/:order_id')
     .get(orderController.getOrderById)
+    .patch(orderController.orderCompleted)
     .delete(orderController.cancelOrder)
 
 router.route('/orderReceipt/:order_id')
     .get(orderController.getOrderDetailReceipt);
-
 
 router.route('/pending/:order_id')
     .get(orderController.getOrderPending)

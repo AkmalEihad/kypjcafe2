@@ -40,7 +40,8 @@ CREATE TABLE Orders(
     order_id SERIAL PRIMARY KEY,
     customer_id INT REFERENCES Customer(customer_id),
     order_date DATE,
-    order_status VARCHAR(100)
+    order_status VARCHAR(100),
+    order_completed BOOLEAN
 )
 
 CREATE TABLE OrdersItems(

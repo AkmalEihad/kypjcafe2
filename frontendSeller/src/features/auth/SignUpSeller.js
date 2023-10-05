@@ -44,7 +44,7 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className='flex bg-gray-200 font-Poppins'>
+		<div className='flex bg-gray-200 font-Rubik'>
 			<img src="https://i.pinimg.com/564x/f1/e2/82/f1e282268c878b2e7897b4e4528b1bb1.jpg" alt="" className="h-screen drop-shadow-lg"/>
 			<div className="flex flex-col justify-center items-start m-auto">
 				<h1 className="font-bold text-5xl text-center mb-10">Sign Up</h1>

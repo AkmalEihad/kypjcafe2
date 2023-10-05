@@ -1,6 +1,5 @@
 const asyncHandler = require("express-async-handler");
 const pool = require("../config/dbConn");
-const multer = require("multer");
 
 const getAllCafe = asyncHandler(async (req, res) => {
   const allCafeQuery = "SELECT * FROM Cafe";
@@ -12,10 +11,22 @@ const getAllCafe = asyncHandler(async (req, res) => {
   res.json(allCafe.rows);
 });
 
+const getCafeById = asyncHandler(async (req, res) => {
+  const { seller_id } = req.params
+
+  const allCafeQuery = "SELECT * FROM Cafe WHERE seller_id = $1";
+  const allCafe = await pool.query(allCafeQuery, [seller_id]);
+
+  if (!allCafe.rows.length) {
+    return res.status(400).json({ message: "No cafe found" });
+  }
+  res.json(allCafe.rows);
+});
+
 const createNewCafe = asyncHandler(async (req, res) => {
   try {
     const { cafe_name, cafe_location, seller_id, description } = req.body;
-    const cafe_image_url  = req.file.filename
+    const cafe_image_url = req.file.filename
     const open = true;
 
     // Validate input data
@@ -24,15 +35,21 @@ const createNewCafe = asyncHandler(async (req, res) => {
       !cafe_location ||
       !seller_id ||
       !description ||
-      !cafe_image_url 
+      !cafe_image_url
     ) {
       return res.status(400).json({ message: "All fields are required" });
+    }
+
+    // Check for seller_id, 1 seller 1 cafe only
+    const checkSellerQuery = "SELECT * FROM Cafe WHERE seller_id = $1"
+    const checkSeller = await pool.query(checkSellerQuery, [seller_id])
+    if (checkSeller.rows.length > 0) {
+      return res.status(409).json({ message: "The seller_id has been used" })
     }
 
     // Check for duplicate cafe name
     const duplicateQuery = "SELECT * FROM Cafe WHERE cafe_name = $1";
     const duplicateCafe = await pool.query(duplicateQuery, [cafe_name]);
-
     if (duplicateCafe.rows.length > 0) {
       return res.status(409).json({ message: "The cafe name has been used" });
     }
@@ -65,18 +82,14 @@ const updateCafe = asyncHandler(async (req, res) => {
     cafe_id,
     cafe_name,
     cafe_location,
-    description,
-    cafe_image_url,
-    is_open,
+    description
   } = req.body;
 
   // Confirm data
   if (
     !cafe_name ||
     !cafe_location ||
-    !description ||
-    !cafe_image_url ||
-    !is_open
+    !description
   ) {
     return res.status(400).json({ message: "All fields are required" });
   }
@@ -100,18 +113,29 @@ const updateCafe = asyncHandler(async (req, res) => {
 
   // Update the user
   const updateCafeQuery =
-    "UPDATE Cafe SET cafe_name = $1, cafe_location = $2, description = $3, cafe_image_url = $4, is_open = $5 WHERE cafe_id = $6 RETURNING *";
+    "UPDATE Cafe SET cafe_name = $1, cafe_location = $2, description = $3 WHERE cafe_id = $4 RETURNING *";
   const updatedCafe = await pool.query(updateCafeQuery, [
     cafe_name,
     cafe_location,
     description,
-    cafe_image_url,
-    is_open,
     cafe_id,
   ]);
 
   res.json({ message: `${cafe_name} updated` });
 });
+
+const updateImage = asyncHandler(async (req, res) => {
+  const { cafe_id } = req.body
+  const cafe_image_url = req.file.filename
+
+  const changeImageQuery = 'UPDATE cafe SET cafe_image_url = $1 WHERE cafe_id = $2'
+  const changeImage = await pool.query(changeImageQuery, [cafe_image_url, cafe_id])
+
+  if(!changeImage){
+    return res.status(404).json({ message: "Image not found" });
+  }
+  res.json({ message: 'Image changed'})
+})
 
 const deleteCafe = asyncHandler(async (req, res) => {
   const { cafe_id } = req.body;
@@ -142,7 +166,9 @@ const deleteCafe = asyncHandler(async (req, res) => {
 
 module.exports = {
   getAllCafe,
+  getCafeById,
   createNewCafe,
   updateCafe,
+  updateImage,
   deleteCafe,
 };

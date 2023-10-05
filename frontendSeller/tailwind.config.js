@@ -11,7 +11,8 @@ module.exports = {
         'tallscreenMax': {'raw': '(max-aspect-ratio: 13/20)'}, 
       },
       fontFamily: {
-        Poppins: ['Poppins']
+        Poppins: ['Poppins'],
+        Rubik: ['Rubik']
       },
     },
   },

@@ -16,9 +16,14 @@ const upload = multer({ storage: storage })
 
 router.route('/')
     .get(cafeController.getAllCafe)
-    //.post(cafeController.createNewCafe)
     .patch(cafeController.updateCafe)
     .delete(cafeController.deleteCafe)
+
+router.route('/:seller_id')
+    .get(cafeController.getCafeById)
+
+router.route('/updateImage')
+    .patch(upload.single('cafeImage'), cafeController.updateImage)
 
 //router dah betul
 router.route('/upload')
