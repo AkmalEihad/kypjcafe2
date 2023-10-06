@@ -50,8 +50,9 @@ const Login = () => {
 		<div className="flex page bg-gradient-to-r from-slate-200 to-slate-500 font-Rubik text-zinc-900 antialiased font-bold">
 			<img src="https://i.pinimg.com/750x/0a/d3/41/0ad341e9715994f5b7266e0a5062a46a.jpg" alt="" className="h-screen drop-shadow-lg" />
 
-			<div className="flex flex-col items-start justify-center m-auto ">
-				<h1 className="mb-10 text-5xl font-bold text-center ">Sign In</h1>
+			<div className="flex flex-col items-start justify-center m-auto">
+
+				<h1 className="antialiased mb-10 text-4xl font-bold text-center">Sign In</h1>
 				
 				<form action="" className="flex flex-col items-start justify-center gap-8 mb-4 rounded-3xl drop-shadow-lg w-96" onSubmit={handleSubmit}>
 					<div className="relative w-full ">
@@ -71,6 +72,7 @@ const Login = () => {
 
 					<div className="relative w-full">
 						<input id="password" value={password} onChange={handlePasswordChange} type="password" className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-zinc-500 focus:outline-none" required />
+
 						<label
 							htmlFor=""
 							className={`absolute left-3 ${password ? '-top-6 left-1 text-black-500 text-s' : 'top-2 text-white-500'} transition-all duration-200`}
@@ -83,9 +85,9 @@ const Login = () => {
 					</div>
 					<input type="submit" value="Sign In" className="w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700" />
 				</form>
-				<p className="w-full text-sm text-center px-3py-2">
+				<p className="w-full text-sm text-center px-3 py-2">
 					Don't have an account?{' '}
-					<Link to="signup" className="text-sm  underline hover:text-[15px] mt-4 hover:mt-8 underline-offset-2 ">
+					<Link to="signup" className="text-sm  underline hover:text-[15px] mt-4 hover:mt-8 underline-offset-2">
 						Sign Up
 					</Link>
 				</p>

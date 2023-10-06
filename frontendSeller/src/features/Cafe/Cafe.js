@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useFetch from '../../hooks/useFetch'
 import Cookies from 'js-cookie';
+import Header from '../../components/Header';
 import UpdateCafe from './UpdateCafe';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -67,29 +68,33 @@ const Cafe = () => {
     }
 
     return (
-        <div>
-            <h1 className='text-center p-4'>Your Cafe</h1>
-            <div className='flex justify-center items-center'>
+        <div className='min-h-screen text-black font-Rubik bg-gradient-to-r  from-slate-200 to-slate-500 font-bold'>
+			<Header/>
+            <h1 className='mt- mb-2 text-3xl font-medium text-zinc-900 text-center p-4'>Your Cafe</h1>
+            <div className="font-Rubik justify-center mr-4 text-zinc-900">
+
                 {data.map((cafe) => (
-                    <div key={cafe.id} className="flex items-center justify-center m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
+                    <div key={cafe.id} className=" text-black flex items-center justify-center m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
                         <img src={`http://localhost:3500/images/${cafe.cafe_image_url}`} alt="" className="max-w-full rounded-t-3xl h-52" />
                         <div className="flex flex-col items-center justify-center min-w-full p-4 bg-white card-body rounded-b-3xl">
                             <h3 className="card-title">{cafe.cafe_name}</h3>
                             <p className="text-sm font-thin">{cafe.description}</p>
                             <p className="font-medium">{cafe.cafe_location}</p>
+                            
                         </div>
                     </div>
                 ))}
+
                 <form action="" encType='multipart/form-data' onSubmit={handleImage}>
-                    <div className="relative max-w-sm">
+                    <div className="max-w-sm item-center justify-center m-auto">
+                <UpdateCafe />
+                        
                         <label
                             htmlFor=""
                             onClick={() => {
                                 document.getElementById("image").focus();
                             }}
-                        >
-                            Change Image
-                        </label>
+                        >Change Image</label>
                         <input
                             id="image"
                             name="cafeImage"
@@ -97,15 +102,18 @@ const Cafe = () => {
                             onChange={(e) => setImage(e.target.files[0])}
                             className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
                         />
-                    </div>
                     <input type="submit" value="Change" />
+                    <button onClick={handleDelete} className='flex font-bold font-Rubik w-32 px-5 py-2 transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-red-500 hover:to-red-900'>Delete Cafe</button>
+                    </div>
                 </form>
+                
             </div>
             <div>
-                <UpdateCafe />
             </div>
-            <button onClick={handleDelete} className='rounded ml-60 px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300 font-medium'>Delete Cafe</button>
+            
+
         </div>
+        
     )
 }
 

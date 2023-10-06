@@ -63,86 +63,86 @@ const UpdateCafe = () => {
     };
 
     return (
-        <div id="cafe" className="flex flex-col justify-center items-center p-4">
-            <h1 className="font-medium text-center text-3xl">Update Cafe</h1>
+        
+        <div id="cafe" className="flex flex-col justify-centeritems-center p-4 text-black font-Rubik antialiased font-bold">
+            <h1 className="text-zinc-900 font-medium text-center text-3xl mb-8">Update Cafe</h1>
             <form
                 action=""
                 className="grid justify-center items-center grid-rows-4 gap-5 drop-shadow-lg"
-                onSubmit={handleSubmit}
-            >
-                <div className="relative">
+                onSubmit={handleSubmit}>
+
+                <div className="relative mb-1">
                     <input
                         id="cafe_name"
                         type="text"
                         value={cafe_name}
                         onChange={(e) => setCafeName(e.target.value)}
-                        className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
-                        required
-                    />
+                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
+                        required/>
+
                     <label
                         htmlFor=""
-                        className={`absolute left-3 ${cafe_name
-                            ? "-top-6 left-1 text-black text-s font-medium"
-                            : "top-2 text-gray-500"
-                            } transition-all duration-200`}
+                        className={`absolute left-3 ${cafe_name ? '-top-6 left-1 text-zinc-900 text-s ' : 'top-2 text-zinc-900-500'} transition-all duration-200`}
                         onClick={() => {
                             document.getElementById("cafe_name").focus();
-                        }}
-                    >
+                        }}>
+
                         {cafe_name ? "Cafe Name" : "Cafe Name"}
                     </label>
                 </div>
+
                 <div className="relative">
                     <input
                         id="description"
                         type="text"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
-                        required
-                    />
+                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
+                        required/>
+
                     <label
                         htmlFor=""
-                        className={`absolute left-3 ${description
-                            ? "-top-6 left-1 text-black text-s font-medium"
-                            : "top-2 text-gray-500"
-                            } transition-all duration-200`}
+                        className={`absolute left-3 ${description ? '-top-6 left-1 text-zinc-900 text-s ' : 'top-2 text-zinc-900-500'} transition-all duration-200`}
                         onClick={() => {
                             document.getElementById("description").focus();
-                        }}
-                    >
+                        }}>
+
                         {description ? "Description" : "Description"}
                     </label>
+
                 </div>
+
                 <div className="relative">
                     <input
                         id="location"
                         type="text"
                         value={cafe_location}
                         onChange={(e) => setLocation(e.target.value)}
-                        className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
-                        required
-                    />
+                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
+                        required/>
+
                     <label
                         htmlFor=""
-                        className={`absolute left-3 ${cafe_location
-                            ? "-top-6 left-1 text-black text-s font-medium"
-                            : "top-2 text-gray-500"
-                            } transition-all duration-200`}
+                        className={`absolute left-3 ${cafe_location ? '-top-6 left-1 text-zinc-900 text-s ' : 'top-2 text-zinc-900-500'} transition-all duration-200`}
                         onClick={() => {
                             document.getElementById("location").focus();
-                        }}
-                    >
+                        }}>
+
                         {cafe_location ? "Location" : "Location"}
+
                     </label>
+                
                 </div>
+
                 <input
                     type="submit"
                     value="Update"
-                    className="rounded w-full px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300 font-medium"
-                />
+                    className="w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700"/>
+
             </form>
+
         </div>
+        
     );
 }
 

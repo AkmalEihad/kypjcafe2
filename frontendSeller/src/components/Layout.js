@@ -5,7 +5,7 @@ import Header from './Header'
 
 const Layout = () => {
   return (
-    <div className='font-Rubik bg-slate-200 min-h-screen'>
+    <div className="min-h-screen text-black font-Rubik bg-gradient-to-r  from-slate-200 to-slate-500">
         <Outlet/>
         <hr className='border-slate-800'/>
         <Footer/>

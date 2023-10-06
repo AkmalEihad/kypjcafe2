@@ -26,8 +26,8 @@ const Order = () => {
     const groupedOrders = [...groupedData.values()];
 
     return (
-        <div className=''>
-            <div className='flex justify-center items-center gap-8 p-4'>
+        <div className='font-medium text-center text-white'>
+            <div className='flex justify-center items-center gap-8 '>
                 <h1>Order</h1>
                 <div className='flex gap-1'>
                     <p>Open Cafe?</p>
