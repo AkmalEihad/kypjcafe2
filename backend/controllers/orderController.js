@@ -2,14 +2,18 @@ const asyncHandler = require('express-async-handler');
 const pool = require('../config/dbConn');
 
 const getAllOrder = asyncHandler(async (req, res) => {
-  const allOrderQuery = 'SELECT m.item_id,m.item_name,m.price,o.order_id,o.order_date,oi.order_item_id,oi.quantity,c.name AS customer_name FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id WHERE o.order_completed = true';
-  const allOrder = await pool.query(allOrderQuery)
+  const { seller_id } = req.params
+
+  const allOrderQuery = 'SELECT m.item_id, m.item_name, m.price, o.order_id, o.order_date, oi.order_item_id, oi.quantity, c.name AS customer_name, cf.cafe_id, s.seller_id FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id INNER JOIN Seller As s ON cf.seller_id = s.seller_id WHERE o.order_completed = true AND s.seller_id = $1';
+  const allOrder = await pool.query(allOrderQuery,[seller_id])
 
   if (!allOrder.rows.length) {
     return res.status(400).json({ message: 'No order found' });
   }
   res.json(allOrder.rows);
 })
+
+
 
 const getOrderById = asyncHandler(async (req, res) => {
   const { order_id } = req.params

@@ -22,6 +22,9 @@ router.route('/')
 router.route('/:seller_id')
     .get(cafeController.getCafeById)
 
+router.route('/openCafe')
+    .patch(cafeController.updateOpenCafe)
+
 router.route('/updateImage')
     .patch(upload.single('cafeImage'), cafeController.updateImage)
 

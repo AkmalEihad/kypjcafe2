@@ -26,9 +26,9 @@ function App() {
       </Route>
       <Route path="/profile" element={<Profile />} />
       <Route path="/change-profile" element={<ChangeProfile />} />
-      <Route path="/orderHistory" element={<OrderHistory />}/>
-      <Route path="/orderHistory/:order_id" element={<OrderHistoryDetail />}/>
-      <Route path="/cafe" element={<CreateCafe />}/>
+      <Route path="/recentOrder" element={<OrderHistory />}/>
+      <Route path="/recentOrder/:order_id" element={<OrderHistoryDetail />}/>
+      <Route path="/create-cafe" element={<CreateCafe />}/>
       <Route path="/cafe/cafeDetail" element={<Cafe />}/>
       
     </Routes>

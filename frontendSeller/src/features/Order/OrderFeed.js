@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import useFetch from '../../hooks/useFetch'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import Cookies from 'js-cookie'
+import React from 'react'
+import useFetch from '../../hooks/useFetch';
+import { Link } from 'react-router-dom';
 
-const OrderHistory = () => {
-    const seller_id = Cookies.get("seller_id");
-
-    const { data } = useFetch(`http://localhost:3500/order/${seller_id}`)
-    
-
+const OrderFeed = () => {
+    const { data } = useFetch('http://localhost:3500/order/orderList');
     // Create a map to group items by order_id and customer_name
     const groupedData = new Map();
+
 
     data.forEach((order) => {
         const key = `${order.order_id}-${order.customer_name}`;
@@ -29,17 +24,10 @@ const OrderHistory = () => {
     });
 
     const groupedOrders = [...groupedData.values()];
-
-    // Calculate total price
-    let totalPrice = 0;
-    data.forEach((item) => {
-        totalPrice += item.price * item.quantity;
-    });
-
     return (
-        <div className='flex justify-center items-center gap-10'>
+        <div className='flex flex-col justify-center items-center gap-6'>
             {groupedOrders.map((group) => (
-                <Link to={`${group.order_id}`}><div key={`${group.order_id}-${group.customer_name}`} className='rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer'>
+                <Link to={`order/${group.order_id}`}><div key={`${group.order_id}-${group.customer_name}`} className='rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer'>
                     <p>Order ID: {group.order_id}</p>
                     <p>Customer Name: {group.customer_name}</p>
                     {group.items.map((item, index) => (
@@ -54,4 +42,4 @@ const OrderHistory = () => {
     )
 }
 
-export default OrderHistory
+export default OrderFeed

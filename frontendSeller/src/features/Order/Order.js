@@ -1,29 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import OrderFeed from './OrderFeed';
 
 const Order = () => {
-    const { data } = useFetch('http://localhost:3500/order/orderList');
+    const seller_id = Cookies.get("seller_id");
+    const { data } = useFetch(`http://localhost:3500/cafe/${seller_id}`)
+    const [isCafeOpen, setIsCafeOpen] = useState()
 
-    // Create a map to group items by order_id and customer_name
-    const groupedData = new Map();
-
-    data.forEach((order) => {
-        const key = `${order.order_id}-${order.customer_name}`;
-        if (!groupedData.has(key)) {
-            groupedData.set(key, {
-                order_id: order.order_id,
-                customer_name: order.customer_name,
-                items: [],
-            });
+    useEffect(() => {
+        // Check if data is available and has the expected structure
+        if (data && data.length > 0) {
+            setIsCafeOpen(data[0].is_open);
         }
-        groupedData.get(key).items.push({
-            item_name: order.item_name,
-            quantity: order.quantity,
-        });
-    });
+    }, [data]);
 
-    const groupedOrders = [...groupedData.values()];
+
+
+    const handleOpenCafe = async (is_open) => {
+        try {
+            const openData = {
+                is_open,
+                seller_id
+            }
+            // Send a request to the backend to update the "is_open" status
+            const response = await fetch('http://localhost:3500/cafe/openCafe', {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(openData), // Send the new status
+            });
+
+            if (response.status === 200 || response.status === 201) {
+                console.log(`Cafe ${is_open ? 'opened' : 'closed'} successfully`);
+            } else {
+                console.error(`Failed to ${is_open ? 'open' : 'close'} cafe with status code:`, response.status);
+                // Handle the error and provide user feedback
+            }
+        } catch (error) {
+            console.error('Error during status update:', error);
+            // Handle the error and provide user feedback
+        }
+    };
+
 
     return (
         <div className='font-medium text-center text-white'>
@@ -31,23 +53,17 @@ const Order = () => {
                 <h1>Order</h1>
                 <div className='flex gap-1'>
                     <p>Open Cafe?</p>
-                    <input type="checkbox" className="toggle toggle-success" />
+                    <input type="checkbox" className="toggle toggle-success" checked={isCafeOpen} // Set the initial state based on the "is_open" status from the database
+                        onChange={(e) => {
+                            const is_open = e.target.checked;
+                            setIsCafeOpen(is_open); // Update the state in your component
+                            handleOpenCafe(is_open); // Call the function to update the backend
+                        }} />
                 </div>
             </div>
-            <div className='flex flex-col justify-center items-center gap-6'>
-                {groupedOrders.map((group) => (
-                    <Link to={`order/${group.order_id}`}><div key={`${group.order_id}-${group.customer_name}`} className='rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer'>
-                        <p>Order ID: {group.order_id}</p>
-                        <p>Customer Name: {group.customer_name}</p>
-                        {group.items.map((item, index) => (
-                            <div key={index} className='flex'>
-                                <p>{item.item_name}</p>
-                                <p>{item.quantity}</p>
-                            </div>
-                        ))}
-                    </div></Link>
-                ))}
-            </div>
+            {isCafeOpen ? (<OrderFeed />) : (
+                <p>Cafe Is Close</p>
+            )}
         </div>
     );
 };

@@ -131,10 +131,26 @@ const updateImage = asyncHandler(async (req, res) => {
   const changeImageQuery = 'UPDATE cafe SET cafe_image_url = $1 WHERE cafe_id = $2'
   const changeImage = await pool.query(changeImageQuery, [cafe_image_url, cafe_id])
 
-  if(!changeImage){
+  if (!changeImage) {
     return res.status(404).json({ message: "Image not found" });
   }
-  res.json({ message: 'Image changed'})
+  res.json({ message: 'Image changed' })
+})
+
+const updateOpenCafe = asyncHandler(async (req, res) => {
+  try {
+    const { is_open, seller_id } = req.body;
+
+    // Update the "is_open" status in the database
+    const updateStatusQuery = 'UPDATE Cafe SET is_open = $1 WHERE seller_id = $2';
+    const updateStatus = await pool.query(updateStatusQuery, [is_open, seller_id]);
+
+    res.status(200).json({ message: `Cafe is now ${is_open ? 'open' : 'closed'}` });
+  } catch (error) {
+    console.error('Error updating cafe status:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+
 })
 
 const deleteCafe = asyncHandler(async (req, res) => {
@@ -170,5 +186,6 @@ module.exports = {
   createNewCafe,
   updateCafe,
   updateImage,
+  updateOpenCafe,
   deleteCafe,
 };

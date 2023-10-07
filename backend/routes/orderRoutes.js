@@ -3,9 +3,11 @@ const router = express.Router()
 const orderController = require('../controllers/orderController')
 
 router.route('/')
-    .get(orderController.getAllOrder)
     .post(orderController.createOrder)
 
+router.route('/:seller_id')
+    .get(orderController.getAllOrder)
+    
 router.route('/orderList')
     .get(orderController.getOrderDetailForSeller)
 
