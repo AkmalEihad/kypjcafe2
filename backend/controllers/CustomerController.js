@@ -11,6 +11,18 @@ const getAllCustomers = asyncHandler(async (req, res) => {
 	res.json(allCust.rows);
 })
 
+const getCustomerById = asyncHandler(async (req, res) => {
+	const {customer_id} = req.params
+
+	const allCustQuery = 'SELECT * FROM Customer WHERE customer_id = $1';
+    const allCust = await pool.query(allCustQuery, [customer_id])
+
+    if (!allCust.rows.length) {
+		return res.status(400).json({ message: 'No customer found' });
+	}
+	res.json(allCust.rows);
+})
+
 const createNewCustomer = asyncHandler(async (req, res) => {
 	const { name, username, password, email, faculty } = req.body;
 
@@ -76,6 +88,7 @@ const updateCustomer = asyncHandler(async (req, res) => {
 
 module.exports = {
     getAllCustomers,
+	getCustomerById,
     createNewCustomer,
     updateCustomer
 }

@@ -12,8 +12,8 @@ const Welcome = () => {
 	const { data } = useFetch(`http://localhost:3500/cafe/${seller_id}`)
 	const hasCafe = data.length > 0;
 	console.log(data)
-    console.log(hasCafe)
-    console.log("WTF is happenning")
+	console.log(hasCafe)
+	console.log("WTF is happenning")
 
 	return (
 		<div>
@@ -28,7 +28,7 @@ const Welcome = () => {
 					{hasCafe ? (
 						// Render cafe information if the seller has a cafe
 						data.map((cafe) => (
-							<div key={cafe.id} className=" text-black flex items-center justify-center m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
+							<Link to={"/cafe/cafeDetail"}><div key={cafe.id} className=" text-black flex items-center justify-center m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
 								<img src={`http://localhost:3500/images/${cafe.cafe_image_url}`} alt="" className="max-w-full rounded-t-3xl h-52" />
 								<div className="flex flex-col items-center justify-center min-w-full p-4 bg-white card-body rounded-b-3xl">
 									<h3 className="card-title">{cafe.cafe_name}</h3>
@@ -36,7 +36,7 @@ const Welcome = () => {
 									<p className="font-medium">{cafe.cafe_location}</p>
 
 								</div>
-							</div>
+							</div></Link>
 						))
 					) : (
 						// Show a button to create a cafe if the seller doesn't have one
@@ -51,8 +51,6 @@ const Welcome = () => {
 				<div className='p-4'>
 					<Order />
 				</div>
-
-
 			</div>
 		</div>
 	);

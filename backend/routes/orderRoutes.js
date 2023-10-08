@@ -8,13 +8,16 @@ router.route('/')
 router.route('/:seller_id')
     .get(orderController.getAllOrder)
     
-router.route('/orderList')
+router.route('/orderList/:seller_id')
     .get(orderController.getOrderDetailForSeller)
 
 router.route('/:order_id')
     .get(orderController.getOrderById)
     .patch(orderController.orderCompleted)
     .delete(orderController.cancelOrder)
+
+router.route('/orderHistory/:customer_id')
+    .get(orderController.getAllOrderByCustId)
 
 router.route('/orderReceipt/:order_id')
     .get(orderController.getOrderDetailReceipt);

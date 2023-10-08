@@ -13,6 +13,16 @@ const getAllOrder = asyncHandler(async (req, res) => {
   res.json(allOrder.rows);
 })
 
+const getAllOrderByCustId = asyncHandler(async (req, res) => {
+  const { customer_id } = req.params
+  const allOrderById = 'SELECT m.item_id, m.item_name, m.price, o.order_id, o.order_date, oi.order_item_id, oi.quantity, c.name AS customer_name, cf.cafe_id, c.customer_id FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id WHERE o.order_completed = true AND c.customer_id = $1';
+  const allOrder = await pool.query(allOrderById, [customer_id])
+
+  if (!allOrder.rows.length) {
+    return res.status(400).json({ message: 'No order found' });
+  }
+  res.json(allOrder.rows);
+})
 
 
 const getOrderById = asyncHandler(async (req, res) => {
@@ -65,7 +75,7 @@ const createOrder = asyncHandler(async (req, res) => {
 
   if (newOrders.rows.length > 0) {
     // Successfully inserted the order, now fetch and send the order details
-    const orderQuery = 'SELECT * FROM orders WHERE customer_id = $1';
+    const orderQuery = 'SELECT * FROM orders WHERE customer_id = $1'; 
     const order = await pool.query(orderQuery, [customer_id]);
 
     res.status(201).json({ message: `New orders from customer ${customer_id} created`, order: order.rows });
@@ -192,6 +202,7 @@ const cancelOrder = asyncHandler(async (req, res) => {
 
 module.exports = {
   getAllOrder,
+  getAllOrderByCustId,
   getOrderById,
   orderCompleted,
   createOrder,

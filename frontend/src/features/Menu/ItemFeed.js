@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const ItemFeed = () => {
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useState([]); 
 	const navigate = useNavigate();
 	const { cafe_id } = useParams();
 	const { data, isLoading, error } = useFetch(`http://localhost:3500/menu/${cafe_id}`);

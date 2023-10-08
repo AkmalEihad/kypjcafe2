@@ -6,21 +6,31 @@ import Welcome from "./features/welcome/Welcome";
 import MenuFeed from "./features/Menu/MenuFeed";
 import ConfirmOrder from "./features/Order/ConfirmOrder";
 import CancelOrder from "./features/Cancel Order/CancelOrder";
+import Profile from "./features/Profile/Profile";
+import ChangeProfile from "./features/Profile/ChangeProfile";
+import OrderHistory from "./features/Order/OrderHistory";
+import OrderHistoryDetail from "./features/Order/OrderHistoryDetail";
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login/>}/>
-      <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
 
-      <Route path="/welcome" element={<Layout/>}>
-        <Route index element={<Welcome/>}/>
-        <Route path="menu/:cafe_id" element={<MenuFeed/>}/>
-      </Route>
-      <Route path="order/:order_id" element={<ConfirmOrder/>}/>
-      <Route path="cancelOrder" element={<CancelOrder/>}/>
+      <Route path="/welcome" element={<Layout />}>
+        <Route index element={<Welcome />} />
+        <Route path="menu/:cafe_id" element={<MenuFeed />} />
         
+      </Route>
+      <Route path="order/:order_id" element={<ConfirmOrder />} />
+      <Route path="cancelOrder" element={<CancelOrder />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/change-profile" element={<ChangeProfile />} />
+      <Route path="/recentOrder" element={<OrderHistory />} />
+      <Route path="/recentOrder/:order_id" element={<OrderHistoryDetail />} />
+
+
 
     </Routes>
   );

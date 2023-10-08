@@ -7,4 +7,7 @@ router.route('/')
     .post(customerController.createNewCustomer)
     .patch(customerController.updateCustomer)
 
+router.route('/:customer_id')
+    .get(customerController.getCustomerById)
+
 module.exports = router
