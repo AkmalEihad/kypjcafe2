@@ -10,9 +10,11 @@ const Header = () => {
         <nav>
             <ul className='flex items-center justify-end gap-5 font-semibold antialiased text-zinc-100'>
 
+                <li className='px-3 py-2 transition duration-300 ease-in-out bg-transparent rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-[#DFC461] hover:bg-zinc-900'><Link to="/menu">Menu</Link></li>
+
                 <li className='px-3 py-2 transition duration-300 ease-in-out bg-transparent rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-[#DFC461] hover:bg-zinc-900'><Link to="/about">About Us</Link></li>
 
-                <li className='px-3 py-2 transition duration-300 ease-in-out bg-transparent rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-[#DFC461] hover:bg-zinc-900'><Link to="/recentOrder">Recent Order</Link></li>
+                <li className='px-3 py-2 transition duration-300 ease-in-out bg-transparent rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-[#DFC461] hover:bg-zinc-900'><Link to="/recentOrder">Order History</Link></li>
 
                 <li className='px-3 py-2 transition duration-300 ease-in-out bg-transparent rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-[#DFC461] hover:bg-zinc-900'><Link to="/profile">Profile</Link></li>
 

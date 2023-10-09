@@ -3,7 +3,6 @@ import Layout from "./components/Layout";
 import LoginSeller from "./features/auth/LoginSeller";
 import SignUpSeller from "./features/auth/SignUpSeller";
 import Welcome from "./features/welcome/Welcome";
-import MenuFeed from "./features/Menu/MenuFeed";
 import Profile from "./features/Profile/Profile";
 import ChangeProfile from "./features/Profile/ChangeProfile";
 import OrderDetail from "./features/Order/OrderDetail";
@@ -11,6 +10,8 @@ import OrderHistory from "./features/Order/OrderHistory";
 import OrderHistoryDetail from "./features/Order/OrderHistoryDetail";
 import Cafe from "./features/Cafe/Cafe";
 import CreateCafe from "./features/Cafe/CreateCafe";
+import Menu from "./features/Menu/Menu";
+import UpdateMenu from "./features/Menu/UpdateMenu";
 
 
 function App() {
@@ -21,7 +22,6 @@ function App() {
 
       <Route path="/welcome" element={<Layout />}>
         <Route index element={<Welcome />} />
-        <Route path="menu/:cafe_id" element={<MenuFeed />} />
         <Route path="order/:order_id" element={<OrderDetail />} />
       </Route>
       <Route path="/profile" element={<Profile />} />
@@ -30,6 +30,8 @@ function App() {
       <Route path="/recentOrder/:order_id" element={<OrderHistoryDetail />}/>
       <Route path="/create-cafe" element={<CreateCafe />}/>
       <Route path="/cafe/cafeDetail" element={<Cafe />}/>
+      <Route path="/menu" element={<Menu />}/>
+      <Route path="/menu/edit/:item_id" element={<UpdateMenu />}/>
       
     </Routes>
   );

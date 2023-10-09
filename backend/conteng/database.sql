@@ -32,6 +32,7 @@ CREATE TABLE Menu(
     item_name VARCHAR(255),
     categories VARCHAR(255),
     price DECIMAL(10,2),
+    item_image_url VARCHAR(255)
     is_available BOOLEAN,
     cafe_id INT REFERENCES Cafe(cafe_id)
 )
