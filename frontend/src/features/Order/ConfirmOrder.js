@@ -33,6 +33,12 @@ const ConfirmOrder = () => {
 			console.log(error);
 		}
 	};
+
+	const receiveOrder = async (e) => {
+		e.preventDefault()
+		navigate('/welcome')
+	}
+
 	return (
 		<div>
 			<h1>Your Order Detail</h1>
@@ -54,7 +60,7 @@ const ConfirmOrder = () => {
 			</div>
 			<button onClick={cancelOrder}>Cancel</button>
 			<br />
-			<button>Received</button>
+			<button onClick={receiveOrder}>Received</button>
 		</div>
 	);
 };

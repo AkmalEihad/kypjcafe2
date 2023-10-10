@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.route('/')
-    .post(menuController.createItemBasedCafe)
+    .post(upload.single('itemImage'), menuController.createItemBasedCafe)
     .patch(upload.single('itemImage'), menuController.updateItem)
-    .delete(menuController.deletItem)
 
 router.route('/:cafe_id')
     .get(menuController.getAllItemBasedCafe)
 
 router.route('/item/:item_id')
     .get(menuController.getItemBasedItemId)
+    .delete(menuController.deletItem)
 
 module.exports = router

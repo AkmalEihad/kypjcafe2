@@ -45,11 +45,12 @@ const getItemBasedItemId = asyncHandler(async (req, res) => {
 
 
 const createItemBasedCafe = asyncHandler(async (req, res) => {
-    const { item_name, categories, price, cafe_id, item_image_url } = req.body;
+    const { item_name, categories, price, cafe_id } = req.body;
+    const item_image_url = req.file.filename;
     const available = true;
 
     // Confirm data
-    if (!item_name || !categories || !price || !cafe_id || !item_image_url) {
+    if (!item_name || !categories || !price || !cafe_id ) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
@@ -110,7 +111,7 @@ const updateItem = asyncHandler(async (req, res) => {
 
 
 const deletItem = asyncHandler(async (req, res) => {
-    const { item_id } = req.body
+    const { item_id } = req.params
 
     // Confirm data
     if (!item_id) {

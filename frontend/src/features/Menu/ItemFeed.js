@@ -9,6 +9,10 @@ const ItemFeed = () => {
 	const { cafe_id } = useParams();
 	const { data, isLoading, error } = useFetch(`http://localhost:3500/menu/${cafe_id}`);
 
+	 // Filter items that are available
+	 const availableItems = data.filter((item) => item.is_available);
+
+
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
@@ -119,9 +123,9 @@ const ItemFeed = () => {
 
 	return (
 			<div className="flex justify-center items-center gap-4 p-4 max-w-full font-Rubik antialiased">
-				{data.map((item) => (
+				{availableItems.map((item) => (
 					<div key={item.item_id} className="px-3 py-3 mt-4 font-medium text-white bg-gradient-to-r  from-slate-400 to-slate-500 rounded-3xl drop-shadow-lg">
-						<img src={item.item_image_url} alt="" className="rounded-2xl w-52 max-h-[116px] m-auto"/>
+						<img src={`http://localhost:3500/images/${item.item_image_url}`} alt="" className="rounded-2xl w-52 max-h-[116px] m-auto"/>
 						<div className="flex justify-between items-center">
 							<p>{item.item_name}</p>
 							<p>{item.price}</p>
