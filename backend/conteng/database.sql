@@ -45,12 +45,13 @@ CREATE TABLE Orders(
     order_completed BOOLEAN
 )
 
-CREATE TABLE OrdersItems(
+CREATE TABLE OrdersItems (
     order_item_id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES Orders(order_id),
-    item_id INT REFERENCES Menu(item_id),
+    order_id INT REFERENCES Orders(order_id) ON DELETE CASCADE,
+    item_id INT REFERENCES Menu(item_id) ON DELETE CASCADE,
     quantity INT
-)
+);
+
 
 SELECT m.item_id,m.item_name,m.price,o.order_id,o.order_date,oi.order_item_id,oi.quantity FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id WHERE order_id = 32;
 
