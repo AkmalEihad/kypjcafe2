@@ -1,11 +1,12 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-const OrderFeed = () => {
+const OrderFeed = ({cafe_id}) => {
     const seller_id = Cookies.get("seller_id");
-    const { data } = useFetch(`http://localhost:3500/order/orderList/${seller_id}`);
+    console.log(cafe_id)
+    const { data } = useFetch(`http://localhost:3500/order/orderList/${cafe_id}`);
     // Create a map to group items by order_id and customer_name
     const groupedData = new Map();
 

@@ -8,6 +8,7 @@ const ItemFeed = () => {
 	const navigate = useNavigate();
 	const { cafe_id } = useParams();
 	const { data, isLoading, error } = useFetch(`http://localhost:3500/menu/${cafe_id}`);
+	console.log(data)
 
 	 // Filter items that are available
 	 const availableItems = data.filter((item) => item.is_available);
@@ -92,6 +93,7 @@ const ItemFeed = () => {
 			if (response.ok) {
 				// Order created successfully
 				const customerData = await response.json();
+				console.log(customerData)
 				const orderId = customerData.order[customerData.order.length - 1];
 				const order_id = orderId.order_id;
 

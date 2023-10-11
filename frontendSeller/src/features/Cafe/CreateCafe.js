@@ -127,13 +127,13 @@ const CreateCafe = () => {
           <label
             htmlFor=""
             onClick={() => {
-              document.getElementById("image").focus();
+              document.getElementById("cafeImage").focus();
             }}
           >
             Image
           </label>
           <input
-            id="image"
+            id="cafeImage"
             name="cafeImage"
             type="file" // Specify accepted file types if needed
             onChange={(e) => setImage(e.target.files[0])}

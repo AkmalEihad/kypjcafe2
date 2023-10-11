@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import useFetch from '../../hooks/useFetch';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import OrderFeed from './OrderFeed';
 
-const Order = () => {
+const Order = ({cafe_id}) => {
+    console.log(cafe_id)
     const seller_id = Cookies.get("seller_id");
     const { data } = useFetch(`http://localhost:3500/cafe/${seller_id}`)
     const [isCafeOpen, setIsCafeOpen] = useState()
@@ -61,7 +62,7 @@ const Order = () => {
                         }} />
                 </div>
             </div>
-            {isCafeOpen ? (<OrderFeed />) : (
+            {isCafeOpen ? (<OrderFeed cafe_id={cafe_id} />) : (
                 <p>Cafe Is Close</p>
             )}
         </div>

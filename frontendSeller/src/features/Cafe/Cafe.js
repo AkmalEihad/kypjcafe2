@@ -88,26 +88,7 @@ const Cafe = () => {
                 ))}
 
                 <UpdateCafe />
-                <form action="" encType='multipart/form-data' onSubmit={handleImage}>
-                    <div className="max-w-sm item-center justify-center m-auto">
-
-                        <label
-                            htmlFor=""
-                            onClick={() => {
-                                document.getElementById("image").focus();
-                            }}
-                        >Change Image</label>
-                        <input
-                            id="image"
-                            name="cafeImage"
-                            type="file" // Specify accepted file types if needed
-                            onChange={(e) => setImage(e.target.files[0])}
-                            className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
-                        />
-                        <input type="submit" value="Change" />
-                        <button onClick={handleDelete} className='flex font-bold font-Rubik w-32 px-5 py-2 transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-red-500 hover:to-red-900'>Delete Cafe</button>
-                    </div>
-                </form>
+            
 
             </div>
             <div>

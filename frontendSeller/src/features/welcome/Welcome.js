@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import useFetch from '../../hooks/useFetch';
@@ -11,9 +11,8 @@ const Welcome = () => {
 	const navigate = useNavigate()
 	const { data } = useFetch(`http://localhost:3500/cafe/${seller_id}`)
 	const hasCafe = data.length > 0;
-	console.log(data)
-	console.log(hasCafe)
-	console.log("WTF is happenning")
+
+	const cafe_id = hasCafe ? data[0].cafe_id : null;
 
 	return (
 		<div>
@@ -49,7 +48,7 @@ const Welcome = () => {
 				</div>
 
 				<div className='p-4'>
-					<Order />
+					<Order key={cafe_id} cafe_id={cafe_id}  />
 				</div>
 			</div>
 		</div>

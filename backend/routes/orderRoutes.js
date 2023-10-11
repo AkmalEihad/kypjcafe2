@@ -8,7 +8,7 @@ router.route('/')
 router.route('/:seller_id')
     .get(orderController.getAllOrder)
     
-router.route('/orderList/:seller_id')
+router.route('/orderList/:cafe_id')
     .get(orderController.getOrderDetailForSeller)
 
 router.route('/:order_id')

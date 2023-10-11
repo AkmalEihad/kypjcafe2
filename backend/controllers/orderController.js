@@ -117,9 +117,10 @@ const getOrderDetailReceipt = asyncHandler(async (req, res) => {
 });
 
 const getOrderDetailForSeller = asyncHandler(async (req, res) => {
+  const { cafe_id } = req.params
     // Retrieve item details for the given item_id
-    const itemsQuery = 'SELECT m.item_id,m.item_name,m.price,o.order_id,o.order_date,oi.order_item_id,oi.quantity,c.name AS customer_name FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id WHERE o.order_completed = false';
-    const itemsResult = await pool.query(itemsQuery);
+    const itemsQuery = 'SELECT m.item_id,m.item_name,m.price,o.order_id,o.order_date,oi.order_item_id,oi.quantity,c.name AS customer_name, cf.cafe_id FROM Menu AS m INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id WHERE o.order_completed = false AND cf.cafe_id = $1';
+    const itemsResult = await pool.query(itemsQuery, [cafe_id]);
 
     if (!itemsResult.rows.length) {
       return res.status(400).json({ message: 'No order yet' });
