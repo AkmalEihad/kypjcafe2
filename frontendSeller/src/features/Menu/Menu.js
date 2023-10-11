@@ -30,7 +30,9 @@ const Menu = () => {
 				console.error("Delete failed with status code:", response.status);
 				// Handle the error and provide user feedback
 			}
-		} catch (error) {}
+		} catch (error) {
+			console.log(error)
+		}
 	};
 
 	return (
