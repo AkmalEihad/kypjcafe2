@@ -62,7 +62,7 @@ const UpdateCafe = () => {
 	};
 
 	return (
-		<div id="cafe" className="flex flex-col justify-centeritems-center p-4 text-black font-Rubik antialiased font-bold">
+		<div id="cafe" className="flex flex-col justify-center items-center p-4 text-black font-Rubik antialiased font-bold">
 			<h1 className="text-zinc-900 font-medium text-center text-3xl mb-8">Update Cafe</h1>
 			<form action="" encType="multipart/form-data" className="grid justify-center items-center grid-rows-4 gap-5 drop-shadow-lg" onSubmit={handleSubmit}>
 				<div className="relative mb-1">

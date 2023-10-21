@@ -37,10 +37,10 @@ const Menu = () => {
 
 	return (
 		<div>
-			<h1>All Menus</h1>
+			<h1 className=" text-[#FFFFFF]">All Menus</h1>
 			<div>
 				<Link to={"create-menu"}>
-					<button>Add Menu</button>
+					<button className="px-5 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Add Menu</button>
 				</Link>
 			</div>
 			<div className="flex justify-center items-center gap-4 p-4 max-w-full font-Rubik antialiased">
@@ -61,10 +61,12 @@ const Menu = () => {
 								<p>{item.item_name}</p>
 								<p>{item.price}</p>
 							</div>
+
 							<Link to={`edit/${item.item_id}`}>
-								<button className="px-4 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Edit</button>
+								<button className="px-5 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Edit</button>
 							</Link>
-							<button onClick={() => handleDelete(item.item_id)}>Delete</button>
+
+							<button className="px-2 py-2 ml-14 mt-4 font-medium text-white hover:text-[#FF0000] transition duration-300 ease-in-out delay-60 hover:-translate-y-1  hover:scale-102" onClick={() => handleDelete(item.item_id)}>Delete</button>
 						</div>
 					))
 				)}

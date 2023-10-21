@@ -53,7 +53,7 @@ const login = asyncHandler(async (req, res) => {
 })
 
 const loginSeller = asyncHandler(async (req, res) => {
-    const { username, password } = req.body
+    const {username,password } = req.body
 
     if (!username || !password) {
         return res.status(400).json({ message: 'All fields are required' })

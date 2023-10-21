@@ -60,12 +60,12 @@ const UpdateMenu = () => {
 
     return (
 
-        <div id="cafe" className="flex flex-col justify-centeritems-center p-4 text-black font-Rubik antialiased font-bold">
-            <h1 className="text-zinc-900 font-medium text-center text-3xl mb-8">Update Menu</h1>
+        <div id="cafe" className="flex flex-col justify-centeritems-center p-4 text-white font-Rubik antialiased font-bold">
+            <h1 className="text-white font-medium text-center text-3xl mb-8">Update Menu</h1>
             <form
                 action=""
                 encType='multipart/form-data'
-                className="grid justify-center items-center grid-rows-4 gap-5 drop-shadow-lg"
+                className="grid justify-center items-center grid-rows-2 gap-10 drop-shadow-lg"
                 onSubmit={handleSubmit}>
 
                 <div className='flex gap-1'>
@@ -77,18 +77,18 @@ const UpdateMenu = () => {
                         }} />
                 </div>
 
-                <div className="relative mb-1">
+                <div className="relative">
                     <input
                         id="item_name"
                         type="text"
                         value={item_name}
                         onChange={(e) => setItemName(e.target.value)}
-                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
+                        className="w-full px-3 py-2 bg-white border text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
                         required />
 
                     <label
                         htmlFor=""
-                        className={`absolute left-3 ${item_name ? '-top-6 left-1 text-zinc-900 text-s ' : 'top-2 text-zinc-900-500'} transition-all duration-200`}
+                        className={`absolute left-3 ${item_name ? '-top-6 left-1 text-white text-s ' : 'top-2 text-zinc-900'} transition-all duration-200`}
                         onClick={() => {
                             document.getElementById("item_name").focus();
                         }}>
@@ -103,12 +103,12 @@ const UpdateMenu = () => {
                         type="text"
                         value={categories}
                         onChange={(e) => setCategories(e.target.value)}
-                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
+                        className="w-full px-3 py-2 bg-white border text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
                         required />
 
                     <label
                         htmlFor=""
-                        className={`absolute left-3 ${categories ? '-top-6 left-1 text-zinc-900 text-s ' : 'top-2 text-zinc-900-500'} transition-all duration-200`}
+                        className={`absolute left-3 ${categories ? '-top-6 left-1 text-white text-s ' : 'top-2 text-zinc-900'} transition-all duration-200`}
                         onClick={() => {
                             document.getElementById("categories").focus();
                         }}>
@@ -124,12 +124,12 @@ const UpdateMenu = () => {
                         type="text"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
-                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
+                        className="w-full px-3 py-2 bg-white border text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none"
                         required />
 
                     <label
                         htmlFor=""
-                        className={`absolute left-3 ${price ? '-top-6 left-1 text-zinc-900 text-s ' : 'top-2 text-zinc-900-500'} transition-all duration-200`}
+                        className={`absolute left-3 ${price ? '-top-6 left-1 text-white text-s ' : 'top-2 text-zinc-900'} transition-all duration-200`}
                         onClick={() => {
                             document.getElementById("price").focus();
                         }}>
@@ -160,7 +160,7 @@ const UpdateMenu = () => {
                 <input
                     type="submit"
                     value="Update"
-                    className="w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700" />
+                    className="w-32 px-3 py-2 m-auto text-zinc-900 transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-zinc-900 bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700" />
 
             </form>
 

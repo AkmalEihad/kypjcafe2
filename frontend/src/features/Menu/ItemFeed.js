@@ -140,7 +140,7 @@ const ItemFeed = () => {
 
 				{/* Display the shopping cart */}
 				<div>
-					<h2>Shopping Cart</h2>
+					<h2 className='px-5 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 rounded-3xl drop-shadow-lg'>Shopping Cart</h2>
 					{cart.map(
 						(cartItem) =>
 							cartItem.quantity > 0 && ( // Only render if quantity is greater than 0
@@ -148,12 +148,14 @@ const ItemFeed = () => {
 									<p>{cartItem.item_name}</p>
 									<p>Quantity: {cartItem.quantity}</p>
 									{/* Quantity adjustment buttons */}
-									<button onClick={() => increaseQuantity(cartItem)}>+</button>
-									<button onClick={() => decreaseQuantity(cartItem)}>-</button>
+									
+									<button className="px-4 py-2 mr-3 mt-2 font-medium text-white hover:-translate-y-1 transition duration-300 ease-in-out delay-60 bg-slate-600 rounded-3xl drop-shadow-lg" onClick={() => increaseQuantity(cartItem)}>+</button>
+									<button className="px-4 py-2  mt-2 font-medium text-white hover:-translate-y-1 transition duration-300 ease-in-out delay-60 bg-slate-600 rounded-3xl drop-shadow-lg" onClick={() => decreaseQuantity(cartItem)}>-</button>
+									
 								</div>
 							)
 					)}
-					<button onClick={confirmOrder}>Confirm Order</button>
+					<button className="px-5 py-2 mt-4 font-medium text-zinc-900 font-rubik transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700 rounded-3xl drop-shadow-lg" onClick={confirmOrder}>Confirm Order</button>
 				</div>
 			</div>
 	);
