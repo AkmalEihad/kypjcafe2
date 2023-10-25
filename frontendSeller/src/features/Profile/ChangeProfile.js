@@ -52,7 +52,7 @@ const ChangeProfile = () => {
             });
             // Handle response as needed
             if (response.ok) {
-                navigate('/profile')
+                navigate('/welcome/profile')
             }
             else {
                 console.log("There is some error")
@@ -63,11 +63,11 @@ const ChangeProfile = () => {
     };
 
     return (
-        <div>
+			<div className="min-h-screen mb-10 text-black font-Rubik bg-gradient-to-r  from-slate-200 to-slate-500">
             <Header />
-            <div>
-                <h1>Change Profile</h1>
-                <div className="flex flex-col gap-4">
+            <div className='flex justify-center items-center flex-col font-Rubik text-zinc-900'>
+                <h1 className='text-zinc-900 text-3xl mb-10'>Change Profile</h1>
+                <div className="px-4 py-2 mt-4 font-medium text-zinc-900 transition duration-300 ease-in-out delay-60 bg-gradient-to-r  from-slate-300 to-slate-500 rounded-3xl drop-shadow-lg card w-96 bg-opacity-80 shadow-xl flex flex-col gap-4 px-5 py-5">
                     <form action="">
                         <div>
                             <label htmlFor="name">Name:</label>
@@ -76,6 +76,7 @@ const ChangeProfile = () => {
                                 value={seller_name}
                                 onChange={handleNameChange}
                                 type="text"
+                                className="w-full px-3 py-2 bg-white border text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none mb-3 mt-2"
                             />
                         </div>
                         <div>
@@ -85,6 +86,7 @@ const ChangeProfile = () => {
                                 value={seller_username}
                                 onChange={handleUsernameChange}
                                 type="text"
+                                className="w-full px-3 py-2 bg-white border text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none mb-3 mt-2"
                             />
                         </div>
                         <div>
@@ -94,6 +96,7 @@ const ChangeProfile = () => {
                                 value={seller_password}
                                 onChange={handlePasswordChange}
                                 type="text"
+                                className="w-full px-3 py-2 bg-white border text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none mb-3 mt-2"
                             />
                         </div>
                         <div>
@@ -103,13 +106,15 @@ const ChangeProfile = () => {
                                 value={seller_email}
                                 onChange={handleEmailChange}
                                 type="email"
+                                className="w-full px-3 py-2 bg-white border text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none mb-3 mt-2"
                             />
                         </div>
-                        <button onClick={handleChangeProfile} type="submit">
-                            Save Changes
-                        </button>
+                        
                     </form>
                 </div>
+                <button className="flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]" onClick={handleChangeProfile} type="submit">
+                            Save Changes
+                        </button>
             </div>
         </div>
     );

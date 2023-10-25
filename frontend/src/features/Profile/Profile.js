@@ -17,9 +17,9 @@ const Profile = () => {
       return (
         <div>
           <Header />
-          <div className="flex justify-center items-center flex-col">
-            <h1 className="text-3xl">Profile</h1>
-            <div className="flex flex-col gap-4">
+          <div className="flex justify-center mb-10 items-center flex-col font-Rubik text-zinc-900">
+        <h1 className="text-zinc-900 text-3xl mb-10">Profile Information</h1>
+        <div className="card w-96 bg-white bg-opacity-80 shadow-xl flex flex-col gap-4 px-5 py-5">
               <div className="flex gap-1">
                 <p>ID:</p>
                 <p>{customer.customer_id}</p>
@@ -44,10 +44,10 @@ const Profile = () => {
                 <p>Email:</p>
                 <p>{customer.email}</p>
               </div>
-              <Link to="/change-profile">
-                <button>Change Profile</button>
-              </Link>
             </div>
+            <Link to="/welcome/change-profile">
+                <button className='flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]'>Change Profile</button>
+              </Link>
           </div>
         </div>
       );

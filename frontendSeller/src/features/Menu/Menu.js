@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import React from "react";
 import useFetch from "../../hooks/useFetch";
+import Header from '../../components/Header';
 import { Link, useNavigate } from "react-router-dom";
 
 const Menu = () => {
@@ -36,9 +37,11 @@ const Menu = () => {
 	};
 
 	return (
-		<div>
-			<h1 className=" text-[#FFFFFF]">All Menus</h1>
-			<div>
+			<div className="min-h-screen text-black font-Rubik bg-gradient-to-r  from-slate-200 to-slate-500">
+			<Header/>
+
+			<h1 className="mt-10 text-zinc-900 text-3xl text-center">All Menus</h1>
+			<div className="flex justify-center item-center mt-5 ">
 				<Link to={"create-menu"}>
 					<button className="px-5 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Add Menu</button>
 				</Link>
@@ -71,7 +74,7 @@ const Menu = () => {
 					))
 				)}
 			</div>
-		</div>
+			</div>
 	);
 };
 

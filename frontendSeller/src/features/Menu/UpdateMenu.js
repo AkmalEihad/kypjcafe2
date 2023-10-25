@@ -45,7 +45,7 @@ const UpdateMenu = () => {
 
             if (response.status === 200 || response.status === 201) {
                 console.log("Update successful");
-                navigate('/menu');
+                navigate('/welcome/menu');
                 // You can also access the response data if the server sends any.
                 console.log("Server response data:", response.data);
             } else {
@@ -60,7 +60,7 @@ const UpdateMenu = () => {
 
     return (
 
-        <div id="cafe" className="flex flex-col justify-centeritems-center p-4 text-white font-Rubik antialiased font-bold">
+        <div id="cafe" className="flex flex-col justify-center items-center p-4 text-white font-Rubik antialiased">
             <h1 className="text-white font-medium text-center text-3xl mb-8">Update Menu</h1>
             <form
                 action=""

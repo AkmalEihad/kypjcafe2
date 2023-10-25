@@ -2,6 +2,7 @@ import React from 'react'
 import useFetch from '../../hooks/useFetch'
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
 
 const OrderHistory = () => {
     const customer_id = Cookies.get('customer_id');
@@ -35,7 +36,10 @@ const OrderHistory = () => {
     });
 
     return (
-        <div className='flex justify-center items-center gap-10'>
+        <div>
+            <Header/>
+            <div className='flex flex-col mb-10 justify-center text-black font-Rubik items-center gap-10'>
+            <h1 className='mt-10 flex text-3xl justify-center text-zinc-900 font-Rubik items-center gap-10'>Recent Order</h1>
             {groupedOrders.map((group) => (
                 <Link to={`${group.order_id}`}><div key={`${group.order_id}-${group.customer_name}`} className='rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer'>
                     <p>Order ID: {group.order_id}</p>
@@ -48,6 +52,7 @@ const OrderHistory = () => {
                     ))}
                 </div></Link>
             ))}
+             </div>
         </div>
     )
 }

@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import useFetch from '../../hooks/useFetch';
 import Cookies from 'js-cookie';
-import Create from '../Cafe/CreateCafe';
 import Order from '../Order/Order';
 
 const Welcome = () => {
@@ -54,5 +53,5 @@ const Welcome = () => {
 		</div>
 	);
 };
-
 export default Welcome;
+

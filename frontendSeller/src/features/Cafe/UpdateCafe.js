@@ -62,10 +62,10 @@ const UpdateCafe = () => {
 	};
 
 	return (
-		<div id="cafe" className="flex flex-col justify-center items-center p-4 text-black font-Rubik antialiased font-bold">
-			<h1 className="text-zinc-900 font-medium text-center text-3xl mb-8">Update Cafe</h1>
+		<div id="cafe" className="flex flex-col justify-center items-center p-4 text-black font-Rubik antialiased">
+			<h1 className="text-zinc-900 text-center text-3xl mb-8">Update Cafe</h1>
 			<form action="" encType="multipart/form-data" className="grid justify-center items-center grid-rows-4 gap-5 drop-shadow-lg" onSubmit={handleSubmit}>
-				<div className="relative mb-1">
+				<div className="relative mb-2">
 					<input id="cafe_name" type="text" value={cafe_name} onChange={(e) => setCafeName(e.target.value)} className="w-full px-3 py-2 bg-white border border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none" required />
 
 					<label
@@ -112,7 +112,7 @@ const UpdateCafe = () => {
 					onClick={() => {
 						document.getElementById("image").focus();
 					}}
-				>
+					>
 					Change Image
 				</label>
 				<input

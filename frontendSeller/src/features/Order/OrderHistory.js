@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch'
+import Header from '../../components/Header';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Cookies from 'js-cookie'
@@ -37,7 +38,9 @@ const OrderHistory = () => {
     });
 
     return (
-        <div className='flex justify-center items-center gap-10'>
+        <div>
+            <Header/>
+        <div className='flex mt-20 mb-20 justify-center items-center gap-10'>
             {groupedOrders.map((group) => (
                 <Link to={`${group.order_id}`}><div key={`${group.order_id}-${group.customer_name}`} className='rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer'>
                     <p>Order ID: {group.order_id}</p>
@@ -45,11 +48,12 @@ const OrderHistory = () => {
                     {group.items.map((item, index) => (
                         <div key={index} className='flex'>
                             <p>{item.item_name}</p>
-                            <p>{item.quantity}</p>
+                            <p> : {item.quantity}</p>
                         </div>
                     ))}
                 </div></Link>
             ))}
+        </div>
         </div>
     )
 }

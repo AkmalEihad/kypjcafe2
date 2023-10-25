@@ -11,7 +11,6 @@ import ChangeProfile from "./features/Profile/ChangeProfile";
 import OrderHistory from "./features/Order/OrderHistory";
 import OrderHistoryDetail from "./features/Order/OrderHistoryDetail";
 
-
 function App() {
   return (
     <Routes>
@@ -21,17 +20,14 @@ function App() {
       <Route path="/welcome" element={<Layout />}>
         <Route index element={<Welcome />} />
         <Route path="menu/:cafe_id" element={<MenuFeed />} />
-        
+
+        <Route path="order/:order_id" element={<ConfirmOrder />} />
+        <Route path="cancelOrder" element={<CancelOrder />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="change-profile" element={<ChangeProfile />} />
+        <Route path="recentOrder" element={<OrderHistory />} />
+        <Route path="recentOrder/:order_id" element={<OrderHistoryDetail />} />
       </Route>
-      <Route path="order/:order_id" element={<ConfirmOrder />} />
-      <Route path="cancelOrder" element={<CancelOrder />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/change-profile" element={<ChangeProfile />} />
-      <Route path="/recentOrder" element={<OrderHistory />} />
-      <Route path="/recentOrder/:order_id" element={<OrderHistoryDetail />} />
-
-
-
     </Routes>
   );
 }

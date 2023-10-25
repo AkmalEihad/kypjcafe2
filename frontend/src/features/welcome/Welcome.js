@@ -11,10 +11,10 @@ const Welcome = () => {
 					<div className="mr-4 mt-8 text-white">
 
 						<h1 className="text-6xl font-bold ">Welcome To KYPJ Cafe</h1>
-						<p className="text-xl">Nak makan tapi malas nak menunggu, malas nak beratur, orang ramai?!</p>
-						<p className="text-xl ">Kini tidak lagi. Jom buat pesanan tanpa beratur</p>
+						<p className="text-xl">Nak makan tapi malas nak menunggu, malas nak beratur, orang ramai?</p>
+						<p className="text-xl ">Kini tidak lagi. Jom buat pesanan tanpa beratur.</p>
 						<a href="#cafe">
-							<button className="px-4 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-700 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r  from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Order Now</button>
+							<button className="px-4 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-700 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r  from-slate-700 to-slate-800 rounded-3xl drop-shadow-lg">Order Now</button>
 						</a>
 					</div>
 				</div> 

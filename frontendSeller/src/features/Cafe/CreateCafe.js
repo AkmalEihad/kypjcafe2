@@ -1,6 +1,5 @@
 import React from "react";
 import useFetch from "../../hooks/useFetch";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -69,7 +68,7 @@ const CreateCafe = () => {
           <label
             htmlFor=""
             className={`absolute left-3 ${cafe_name
-              ? "-top-6 left-1 text-black text-s font-medium"
+              ? "-top-6 left-1 text-black text-s"
               : "top-2 text-gray-500"
               } transition-all duration-200`}
             onClick={() => {
@@ -91,7 +90,7 @@ const CreateCafe = () => {
           <label
             htmlFor=""
             className={`absolute left-3 ${description
-              ? "-top-6 left-1 text-black text-s font-medium"
+              ? "-top-6 left-1 text-black text-s"
               : "top-2 text-gray-500"
               } transition-all duration-200`}
             onClick={() => {
@@ -113,7 +112,7 @@ const CreateCafe = () => {
           <label
             htmlFor=""
             className={`absolute left-3 ${cafe_location
-              ? "-top-6 left-1 text-black text-s font-medium"
+              ? "-top-6 left-1 text-black text-s"
               : "top-2 text-gray-500"
               } transition-all duration-200`}
             onClick={() => {
@@ -144,7 +143,7 @@ const CreateCafe = () => {
         <input
           type="submit"
           value="Create"
-          className="rounded w-full px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300 font-medium"
+          className="rounded w-full px-3 py-2 transition ease-in-out delay-60 bg-[#c4942f]  hover:-translate-y-1 hover:scale-110  hover:text-white hover:bg-black duration-300"
         />
       </form>
     </div>
