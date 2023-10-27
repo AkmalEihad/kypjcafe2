@@ -10,6 +10,7 @@ import Profile from "./features/Profile/Profile";
 import ChangeProfile from "./features/Profile/ChangeProfile";
 import OrderHistory from "./features/Order/OrderHistory";
 import OrderHistoryDetail from "./features/Order/OrderHistoryDetail";
+import MenuNav from "./features/Menu/MenuNav";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
 
       <Route path="/welcome" element={<Layout />}>
         <Route index element={<Welcome />} />
-        <Route path="menu/:cafe_id" element={<MenuFeed />} />
+        <Route path="menu/:cafe_id" element={<MenuNav />} />
 
         <Route path="order/:order_id" element={<ConfirmOrder />} />
         <Route path="cancelOrder" element={<CancelOrder />} />
