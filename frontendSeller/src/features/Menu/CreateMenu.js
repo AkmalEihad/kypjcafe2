@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Header from "../../components/Header";
 
 const CreateMenu = () => {
 	const [item_name, setItemName] = useState("");
@@ -43,7 +44,8 @@ const CreateMenu = () => {
 	};
 
 	return (
-		<div>
+		<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
+			<Header/>
 			<h1 className="mt-10 text-white font-Rubik text-2xl text-center">Create Menu</h1>
 
 			<form action="" encType="multipart/form-data" className="grid justify-center items-center grid-rows-2 mt-20 font-bold gap-10 drop-shadow-lg font-Rubik" onSubmit={handleSubmit}>

@@ -145,8 +145,8 @@ const ItemFeed = ({setSelectedCategory, selectedCategory}) => {
 			</div>
 
 			{/* Display the shopping cart */}
-			<div className="flex flex-col justify-start items-start p-6">
-				<h2 className=" mt-4 font-medium text-white text-2xl">Shopping Cart</h2>
+			<div className="flex flex-col justify-start items-start text-xl p-6">
+				<h2 className="mt-4 font-medium text-white text-2xl">Shopping Cart</h2>
 				{cart.map(
 					(cartItem) =>
 						cartItem.quantity > 0 && ( // Only render if quantity is greater than 0

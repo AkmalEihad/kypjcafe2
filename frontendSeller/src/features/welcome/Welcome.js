@@ -19,35 +19,37 @@ const Welcome = () => {
 
 				<Header />
 
-				<div className="font-Rubik flex flex-col items-center justify-center p-4">
+				<div className="flex items-center justify-center text-lg">
 
+					<div className="flex flex-col">
 					<h1 className='mt-6 mb-6 text-3xl font-medium text-center text-white'>Your Cafe</h1>
 
 					{hasCafe ? (
 						// Render cafe information if the seller has a cafe
 						data.map((cafe) => (
-							<Link to={"/cafe/cafeDetail"}><div key={cafe.id} className=" text-black flex items-center justify-center m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
+							<Link to={"/welcome/cafe/cafeDetail"}><div key={cafe.id} className="flex text-black  m-auto transition duration-300 ease-in-out card max-w-fit max-h-max delay-60 hover:-translate-y-1 hover:scale-105">
 								<img src={`http://localhost:3500/images/${cafe.cafe_image_url}`} alt="" className="max-w-full rounded-t-3xl h-52" />
-								<div className="flex flex-col items-center justify-center min-w-full p-4 bg-white card-body rounded-b-3xl">
+								<div className="flex justify-center items-center min-w-full p-4 bg-white card-body rounded-b-3xl">
 									<h3 className="card-title">{cafe.cafe_name}</h3>
-									<p className="text-sm font-thin">{cafe.description}</p>
+									<p className="font-thin">{cafe.description}</p>
 									<p className="font-medium">{cafe.cafe_location}</p>
 
 								</div>
-							</div></Link>
+							</div>
+							</Link>
+							
 						))
 					) : (
 						// Show a button to create a cafe if the seller doesn't have one
-						<div className="flex flex-col items-center justify-center">
+						<div className="">
 							<p>You don't have a cafe. Create one now!</p>
 							<button onClick={() => navigate('/create-cafe')} className="...">Create Cafe</button>
 						</div>
 					)}
-
-				</div>
-
-				<div className='p-4'>
-					<Order key={cafe_id} cafe_id={cafe_id}  />
+					</div>
+								<div className="flex flex-col pl-10 ">
+								<Order key={cafe_id} cafe_id={cafe_id}  />
+								</div>
 				</div>
 			</div>
 		</div>

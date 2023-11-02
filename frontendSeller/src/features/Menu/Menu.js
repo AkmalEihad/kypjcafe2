@@ -37,10 +37,10 @@ const Menu = () => {
 	};
 
 	return (
-			<div className="min-h-screen text-black font-Rubik bg-gradient-to-r  from-slate-200 to-slate-500">
+		<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
 			<Header/>
 
-			<h1 className="mt-10 text-zinc-900 text-3xl text-center">All Menus</h1>
+			<h1 className="mt-10 text-zinc-200 text-3xl text-center">All Menus</h1>
 			<div className="flex justify-center item-center mt-5 ">
 				<Link to={"create-menu"}>
 					<button className="px-5 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Add Menu</button>

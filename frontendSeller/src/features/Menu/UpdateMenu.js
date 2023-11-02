@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useFetch from '../../hooks/useFetch';
+import Header from '../../components/Header';
 import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
@@ -59,9 +60,10 @@ const UpdateMenu = () => {
     };
 
     return (
-
-        <div id="cafe" className="flex flex-col justify-center items-center p-4 text-white font-Rubik antialiased">
-            <h1 className="text-white font-medium text-center text-3xl mb-8">Update Menu</h1>
+        <div>
+            <Header/>
+        <div id="cafe" className="flex flex-col justify-center items-center p-4 text-zinc-900 font-Rubik antialiased">
+            <h1 className="text-zinc-900 font-medium text-center text-3xl mb-8">Update Menu</h1>
             <form
                 action=""
                 encType='multipart/form-data'
@@ -138,7 +140,7 @@ const UpdateMenu = () => {
 
                     </label>
 
-                    <div className="max-w-sm item-center justify-center m-auto">
+                    <div className="max-w-sm item-center justify-center mt-5 m-auto">
 
                         <label
                             htmlFor="itemImage"
@@ -164,6 +166,7 @@ const UpdateMenu = () => {
 
             </form>
 
+        </div>
         </div>
 
     );

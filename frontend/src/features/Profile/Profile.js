@@ -46,7 +46,7 @@ const Profile = () => {
               </div>
             </div>
             <Link to="/welcome/change-profile">
-                <button className='flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]'>Change Profile</button>
+                <button className='flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]'>Manage Profile</button>
               </Link>
           </div>
         </div>

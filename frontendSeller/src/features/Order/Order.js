@@ -49,8 +49,8 @@ const Order = ({cafe_id}) => {
 
 
     return (
-        <div className='font-medium text-center text-white'>
-            <div className='flex justify-center items-center gap-8 '>
+        <div className='font-medium text-center text-white '>
+            <div className='flex justify-center items-center gap-8 mb-5 '>
                 <h1>Order</h1>
                 <div className='flex gap-1'>
                     <p>Open Cafe?</p>

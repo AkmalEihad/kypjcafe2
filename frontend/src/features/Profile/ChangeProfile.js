@@ -70,7 +70,7 @@ const ChangeProfile = () => {
         <div>
             <Header />
             <div className='flex justify-center mb-10 items-center flex-col font-Rubik text-zinc-900'>
-                <h1 className='text-zinc-900 text-3xl mb-10'>Change Profile</h1>
+                <h1 className='text-zinc-900 text-3xl mb-10'>Manage Profile</h1>
                 <div className="card w-96 bg-gradient-to-r from-slate-500 to-slate-800 shadow-xl flex flex-col gap-4 px-5 py-5">
                     <form action="">
                         <div>

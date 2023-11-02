@@ -38,9 +38,9 @@ const OrderHistory = () => {
     });
 
     return (
-        <div>
+        <div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')]">
             <Header/>
-        <div className='flex mt-20 mb-20 justify-center items-center gap-10'>
+        <div className='flex mt-20 mb-20 justify-center items-center gap-4'>
             {groupedOrders.map((group) => (
                 <Link to={`${group.order_id}`}><div key={`${group.order_id}-${group.customer_name}`} className='rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer'>
                     <p>Order ID: {group.order_id}</p>
