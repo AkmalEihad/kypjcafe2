@@ -7,6 +7,7 @@ import OrderFeed from './OrderFeed';
 
 const Order = ({cafe_id}) => {
     console.log(cafe_id)
+    const cafeid = Cookies.set("cafe_id", cafe_id)
     const seller_id = Cookies.get("seller_id");
     const { data } = useFetch(`http://localhost:3500/cafe/${seller_id}`)
     const [isCafeOpen, setIsCafeOpen] = useState()

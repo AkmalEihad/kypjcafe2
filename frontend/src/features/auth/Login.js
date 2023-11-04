@@ -7,6 +7,7 @@ const Login = () => {
 
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
 
 	const handleUsernameChange = (e) => {
 		setUsername(e.target.value);
@@ -39,16 +40,18 @@ const Login = () => {
 
 				navigate('/welcome');
 			} else {
-				console.log('Login Failed!');
+				const errorData = await response.json();
+				setError(errorData.message);
 			}
 		} catch (error) {
 			console.log(error);
+			setError('An error occurred. Please try again later.');
 		}
 	};
 
 	return (
 		<div className="flex page bg-gradient-to-r from-slate-200 to-slate-500 font-Rubik text-zinc-900 antialiased">
-			<img src="https://i.pinimg.com/750x/0a/d3/41/0ad341e9715994f5b7266e0a5062a46a.jpg" alt="" className="h-screen drop-shadow-lg" />
+			<img src="gmbr_makanan.jpg" alt="" className="h-screen drop-shadow-lg " />
 
 			<div className="flex flex-col items-start justify-center m-auto">
 
@@ -83,6 +86,7 @@ const Login = () => {
 							{password ? 'Password' : 'Password'}
 						</label>
 					</div>
+					{error && <p className="text-red-500 text-sm ml-2">{error}</p>}
 					<input type="submit" value="Log Masuk" className="text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]" />
 				</form>
 				<p className="w-full text-sm text-center px-3 py-2">

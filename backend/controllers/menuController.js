@@ -12,16 +12,23 @@ const getAllItemBasedCafe = asyncHandler(async (req, res) => {
 	let query;
 	let queryParams;
 
-	if (cafe_id) {
-		query = "SELECT * FROM Menu WHERE cafe_id = $1";
-		queryParams = [cafe_id];
-	} else if (seller_id) {
-		// Add logic for seller_id if needed
-		query = "SELECT M.*, C.cafe_id FROM Menu AS M INNER JOIN Cafe AS C ON M.cafe_id = C.cafe_id WHERE C.seller_id = $1";
-		queryParams = [seller_id];
-	}
+	// Add logic for seller_id if needed
+	query = "SELECT * FROM Menu AS M INNER JOIN Cafe AS C ON M.cafe_id = C.cafe_id WHERE C.seller_id = $1 OR C.cafe_id = $1";
+	queryParams = [seller_id];
 
 	const allItemBasedCafe = await pool.query(query, queryParams);
+
+	if (!allItemBasedCafe.rows.length) {
+		return res.status(400).json({ message: "No item found" });
+	}
+
+	res.json(allItemBasedCafe.rows);
+});
+
+const getAllItem = asyncHandler(async (req, res) => {
+
+	const allItemQuery = 'SELECT * FROM Menu'
+	const allItemBasedCafe = await pool.query(allItemQuery);
 
 	if (!allItemBasedCafe.rows.length) {
 		return res.status(400).json({ message: "No item found" });
@@ -109,24 +116,24 @@ const updateItem = asyncHandler(async (req, res) => {
 });
 
 const deletItem = asyncHandler(async (req, res) => {
-    const { item_id } = req.params;
+	const { item_id } = req.params;
 
-    // Step 2: Perform Deletion (only if there are no dependencies)
-    const deleteQuery = 'DELETE FROM Menu WHERE item_id = $1 RETURNING *';
-    const deletedItem = await pool.query(deleteQuery, [item_id]);
+	// Step 2: Perform Deletion (only if there are no dependencies)
+	const deleteQuery = "DELETE FROM Menu WHERE item_id = $1 RETURNING *";
+	const deletedItem = await pool.query(deleteQuery, [item_id]);
 
-    if (deletedItem.rows.length > 0) {
-        // Item successfully deleted
-        res.json({ message: 'Item deleted', deletedItem: deletedItem.rows[0] });
-    } else {
-        // Item not found or deletion failed
-        res.status(404).json({ message: 'Item not found or deletion failed.' });
-    }
+	if (deletedItem.rows.length > 0) {
+		// Item successfully deleted
+		res.json({ message: "Item deleted", deletedItem: deletedItem.rows[0] });
+	} else {
+		// Item not found or deletion failed
+		res.status(404).json({ message: "Item not found or deletion failed." });
+	}
 });
-
 
 module.exports = {
 	getAllItemBasedCafe,
+	getAllItem,
 	getItemBasedItemId,
 	createItemBasedCafe,
 	updateItem,

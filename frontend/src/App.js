@@ -11,6 +11,7 @@ import ChangeProfile from "./features/Profile/ChangeProfile";
 import OrderHistory from "./features/Order/OrderHistory";
 import OrderHistoryDetail from "./features/Order/OrderHistoryDetail";
 import MenuNav from "./features/Menu/MenuNav";
+import OrderPending from "./features/Order/OrderPending";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="menu/:cafe_id" element={<MenuNav />} />
 
         <Route path="order/:order_id" element={<ConfirmOrder />} />
+        <Route path="orderPending/:customer_id" element={<OrderPending />} />
         <Route path="cancelOrder" element={<CancelOrder />} />
         <Route path="profile" element={<Profile />} />
         <Route path="change-profile" element={<ChangeProfile />} />

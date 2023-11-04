@@ -85,10 +85,10 @@ const createOrder = asyncHandler(async (req, res) => {
 });
 
 const getOrderPending = asyncHandler(async (req, res) => {
-  const { order_id } = req.params
+  const { customer_id } = req.params
 
-  const resultQuery = 'SELECT * FROM orders WHERE order_id = $1 AND order_status = $2'
-  const result = await pool.query(resultQuery, [order_id, 'Pending'])
+  const resultQuery = 'SELECT m.item_id,m.item_name,m.price,o.order_id,o.order_date,oi.order_item_id,oi.quantity FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id WHERE o.customer_id = $1 AND o.order_completed = false'
+  const result = await pool.query(resultQuery, [customer_id])
 
   if (!result.rows.length) {
     return res.status(400).json({ message: 'No order pending on this ID found' });
@@ -129,6 +129,19 @@ const getOrderDetailForSeller = asyncHandler(async (req, res) => {
     if (!itemsResult.rows.length) {
       return res.status(400).json({ message: 'No order found' });
     }
+    res.json(itemsResult.rows);
+});
+
+const getOrderDetailForSeller2 = asyncHandler(async (req, res) => {
+  const { cafe_id, order_id } = req.params
+    // Retrieve item details for the given item_id
+    const itemsQuery = 'SELECT m.item_id,m.item_name,m.price,o.order_id,o.order_date,oi.order_item_id,oi.quantity,c.name AS customer_name, cf.cafe_id FROM Menu AS m INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id WHERE o.order_completed = false AND cf.cafe_id = $1 AND oi.order_id = $2';
+    const itemsResult = await pool.query(itemsQuery, [cafe_id, order_id]);
+
+    if (!itemsResult.rows.length) {
+      return res.status(400).json({ message: 'No order yet' });
+    }
+
     res.json(itemsResult.rows);
 });
 
@@ -210,6 +223,7 @@ module.exports = {
   getOrderPending,
   getOrderDetailReceipt,
   getOrderDetailForSeller,
+  getOrderDetailForSeller2,
   confirmOrder,
   cancelOrder
 }

@@ -11,6 +11,9 @@ router.route('/:seller_id')
 router.route('/orderList/:cafe_id')
     .get(orderController.getOrderDetailForSeller)
 
+router.route('/orderListSeller/:cafe_id/:order_id')
+    .get(orderController.getOrderDetailForSeller2)
+
 router.route('/:order_id')
     .get(orderController.getOrderById)
     .patch(orderController.orderCompleted)
@@ -22,7 +25,7 @@ router.route('/orderHistory/:customer_id')
 router.route('/orderReceipt/:order_id')
     .get(orderController.getOrderDetailReceipt);
 
-router.route('/pending/:order_id')
+router.route('/pending/:customer_id')
     .get(orderController.getOrderPending)
 
 router.route('/confirmOrder')

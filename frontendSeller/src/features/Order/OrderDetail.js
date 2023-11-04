@@ -1,12 +1,13 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-
+import Cookies from 'js-cookie';
 
 const OrderDetail = () => {
     const navigate = useNavigate();
     const { order_id } = useParams();
-    const { data } = useFetch(`http://localhost:3500/order/orderReceipt/${order_id}`);
+    const cafe_id = Cookies.get("cafe_id")
+    const { data } = useFetch(`http://localhost:3500/order/orderListSeller/${cafe_id}/${order_id}`);
 
     const isoDateString = data.length > 0 ? data[0].order_date : null;
     let formattedDate = 'No order date found';
@@ -50,7 +51,7 @@ const OrderDetail = () => {
             });
 
             if (response.ok) {
-                navigate('/cancelOrder');
+                navigate('/welcome/cancelOrder');
             }
         } catch (error) {
             console.log(error);
