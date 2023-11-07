@@ -38,21 +38,25 @@ const OrderHistory = () => {
     });
 
     return (
-        <div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')]">
+        <div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
             <Header/>
-        <div className='flex mt-20 mb-20 justify-center items-center gap-4'>
+            <div className="flex flex-col mb-10 justify-center text-black font-Rubik items-center gap-10">
+				<h1 className="mt-10 flex text-3xl justify-center font-bold text-white font-Rubik items-center gap-10">Order History</h1>
+				<div className="grid grid-cols-4 gap-4">
             {groupedOrders.map((group) => (
-                <Link to={`${group.order_id}`}><div key={`${group.order_id}-${group.customer_name}`} className='rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer'>
-                    <p>Order ID: {group.order_id}</p>
+                <Link to={`${group.order_id}`} className="rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer">
+                    <div key={`${group.order_id}-${group.customer_name}`}>
+                    <p className='font-bold'>Order ID #{group.order_id}</p>
                     <p>Customer Name: {group.customer_name}</p>
                     {group.items.map((item, index) => (
-                        <div key={index} className='flex'>
+                        <div key={index} className='flex justify-between items-center gap-4'>
                             <p>{item.item_name}</p>
                             <p> : {item.quantity}</p>
                         </div>
                     ))}
                 </div></Link>
             ))}
+        </div>
         </div>
         </div>
     )

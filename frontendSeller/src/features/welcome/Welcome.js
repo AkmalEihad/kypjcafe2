@@ -19,7 +19,7 @@ const Welcome = () => {
 
 				<Header />
 
-				<div className="flex items-center justify-center text-lg">
+				<div className="flex items-start justify-center text-lg">
 
 					<div className="flex flex-col">
 					<h1 className='mt-6 mb-6 text-3xl font-medium text-center text-white'>Your Cafe</h1>
@@ -47,7 +47,7 @@ const Welcome = () => {
 						</div>
 					)}
 					</div>
-								<div className="flex flex-col pl-10 ">
+								<div className="flex flex-col pl-10 pt-40 ">
 								<Order key={cafe_id} cafe_id={cafe_id}  />
 								</div>
 				</div>

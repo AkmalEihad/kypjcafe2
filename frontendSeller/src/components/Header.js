@@ -83,7 +83,7 @@ const Header = () => {
           </Link>
 
           <Link to="/">
-            <li className="flex justify-center items-center text-zinc-900 rounded-3xl px-3 py-2 transition ease-in-out delay-60 bg-gradient-to-r from-[#DFC461] to-[#b8a14f] hover:-translate-y-1 hover:scale-110 hover:from-red-900 hover:to-red-800 duration-300">
+          <li className="flex justify-center items-center text-zinc-900 hover:text-white rounded-3xl px-3 py-2 transition ease-in-out delay-60 bg-gradient-to-r from-[#DFC461] to-[#b8a14f] hover:-translate-y-1 hover:scale-110 hover:from-red-500 hover:to-red-800 duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"

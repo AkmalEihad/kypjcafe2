@@ -63,7 +63,7 @@ const ConfirmOrder = () => {
 	};
 
 	return (
-		<div>
+		<div> 
 			<Header />
 			{inProgress ? (
 				<div className="flex flex-col justify-center text-black font-Rubik items-center p-6">
@@ -108,9 +108,9 @@ const ConfirmOrder = () => {
 						</div>
 					</div>
 
-					<div className="flex justify-center items-center mt-8 text-white">
-						<h2>Your number is</h2>
-						<p className="font-bold text-2xl">#{data.length > 0 ? data[0].order_id : "No order ID found"}</p>
+					<div className="flex justify-center items-center mt-8 text-zinc-900">
+						<h2>Your number is </h2>
+						<p className="font-bold text-2xl">&nbsp;&nbsp;#{data.length > 0 ? data[0].order_id : "No order ID found"}</p>
 					</div>
 					<div className="mt-8 text-black rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer">
 						{data.map((i) => (

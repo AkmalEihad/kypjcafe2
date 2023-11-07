@@ -16,10 +16,10 @@ const Profile = () => {
 
   return (
     
-    <div className="min-h-screen text-zinc-900 font-Rubik bg-gradient-to-r from-slate-200 to-slate-500">
+    <div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
       <Header />
-      <div className="flex justify-center items-center flex-col font-Rubik text-zinc-900 ">
-        <h1 className="text-zinc-900 text-3xl mb-10">Seller Profile</h1>
+      <div className="flex justify-center items-center flex-col font-Rubik mt-10 text-zinc-900 ">
+        <h1 className="text-white text-3xl mb-10">Seller Profile</h1>
         <div className="bg-zinc-300 card w-96 shadow-xl flex flex-col gap-4 px-5 py-5">
           <div className="flex gap-1">
             <p>ID:</p>

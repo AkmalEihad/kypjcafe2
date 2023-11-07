@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
-import BottomNav from "./BottomNav";
 import InProgress from "../features/Order/InProgress";
 import Cookies from "js-cookie";
 import useFetch from "../hooks/useFetch";
@@ -26,7 +25,6 @@ const Layout = () => {
 
 			<hr className="border-slate-800" />
 			<Footer />
-			<BottomNav />
 		</div>
 	);
 };

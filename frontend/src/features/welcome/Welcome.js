@@ -3,7 +3,6 @@ import CafeFeed from "../Cafe/CafeFeed";
 import Header from "../../components/Header";
 import { BsArrowDownShort } from "react-icons/bs";
 import useFetch from "../../hooks/useFetch";
-import BottomNav from "../../components/BottomNav";
 import { Link } from 'react-router-dom';
 
 const Welcome = () => {
