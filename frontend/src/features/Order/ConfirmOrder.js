@@ -13,7 +13,7 @@ const ConfirmOrder = () => {
 	const [completed, setCompleted] = useState(false);
 	const progress = Cookies.set("progress", inProgress);
 	const { order_id } = useParams();
-	const has_order = Cookies.set("has_orders", true);
+	const has_order = Cookies.get("has_orders") === "true";
 	Cookies.set("order_id", order_id);
 	const { data } = useFetch(`http://localhost:3500/order/orderReceipt/${order_id}`);
 	console.log(data);
@@ -34,36 +34,42 @@ const ConfirmOrder = () => {
 	});
 
 	const cancelOrder = async (e) => {
-		try {
-			const response = await fetch(`http://localhost:3500/order/${order_id}`, {
-				method: "DELETE",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
+		const userConfirmed = window.confirm("Are you sure you want to cancel this order?");
 
-			if (response.ok) {
-				navigate("/welcome/cancelOrder");
+		if (userConfirmed) {
+			try {
+				const response = await fetch(`http://localhost:3500/order/${order_id}`, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				});
+
+				if (response.ok) {
+					Cookies.set("cancel", true);
+					navigate("/welcome");
+				}
+			} catch (error) {
+				console.log(error);
 			}
-		} catch (error) {
-			console.log(error);
 		}
 	};
 
 	const receiveOrder = async (e) => {
-		e.preventDefault();
-		if (has_order === 'true') {
-			navigate("/welcome");
+		if (has_order) {
+			setInProgress(false);
+			setCompleted(true);
+			Cookies.set("progress", inProgress)
 		} else {
 			setInProgress(false);
 			setCompleted(true);
-			Cookies.remove("progress");
+			
 			Cookies.set("progress", inProgress);
 		}
 	};
 
 	return (
-		<div> 
+		<div>
 			<Header />
 			{inProgress ? (
 				<div className="flex flex-col justify-center text-black font-Rubik items-center p-6">
@@ -205,6 +211,7 @@ const ConfirmOrder = () => {
 								className="text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0] "
 								onClick={(e) => {
 									navigate("/welcome");
+									window.location.reload()
 								}}
 							>
 								Continue

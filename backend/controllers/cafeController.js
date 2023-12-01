@@ -125,7 +125,7 @@ const updateOpenCafe = asyncHandler(async (req, res) => {
 });
 
 const deleteCafe = asyncHandler(async (req, res) => {
-	const { cafe_id } = req.body;
+	const { cafe_id } = req.params;
 
 	// Confirm data
 	if (!cafe_id) {

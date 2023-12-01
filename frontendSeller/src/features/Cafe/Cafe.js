@@ -10,36 +10,39 @@ const Cafe = () => {
 	const seller_id = Cookies.get("seller_id");
 	const { data } = useFetch(`http://localhost:3500/cafe/${seller_id}`);
 	const navigate = useNavigate();
-
+	const hasItem = Cookies.get("has_items") === "true";
 
 	const handleDelete = async (e) => {
 		e.preventDefault();
 
-		try {
-			const cafe_id = data[0].cafe_id;
-			const deleteData = {
-				cafe_id,
-			};
+		if (hasItem) {
+			window.alert("You need to delete all item first before delete cafe!");
+		} else {
+			const userConfirmed = window.confirm("Are you sure you want to delete this cafe?");
+			if (userConfirmed) {
+				try {
+					const cafe_id = data[0].cafe_id;
 
-			const response = await fetch("http://localhost:3500/cafe", {
-				method: "DELETE",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(deleteData),
-			});
+					const response = await fetch(`http://localhost:3500/cafe/${cafe_id}`, {
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+						},
+					});
 
-			if (response.status === 200 || response.status === 201) {
-				console.log("Delete Cafe Successful");
-				navigate("/welcome");
-				// You can also access the response data if the server sends any.
-				console.log("Server response data:", response.data);
-			} else {
-				console.error("Delete failed with status code:", response.status);
-				// Handle the error and provide user feedback
+					if (response.status === 200 || response.status === 201) {
+						console.log("Delete Cafe Successful");
+						navigate("/welcome");
+						// You can also access the response data if the server sends any.
+						console.log("Server response data:", response.data);
+					} else {
+						console.error("Delete failed with status code:", response.status);
+						// Handle the error and provide user feedback
+					}
+				} catch (error) {
+					console.log(error);
+				}
 			}
-		} catch (error) {
-			console.log(error);
 		}
 	};
 
@@ -48,7 +51,6 @@ const Cafe = () => {
 			<Header />
 			<h1 className="mt- mb-2 text-3xl text-zinc-200 text-center p-4">Your Cafe</h1>
 			<div className="font-Rubik justify-center text-zinc-200">
-
 				{data.map((cafe) => (
 					<div key={cafe.id} className=" text-black flex items-center justify-center m-auto card max-w-fit max-h-max">
 						<img src={`http://localhost:3500/images/${cafe.cafe_image_url}`} alt="" className="max-w-full rounded-t-3xl h-52" />
@@ -66,8 +68,7 @@ const Cafe = () => {
 					Delete Cafe
 				</button>
 			</div>
-			</div>
-			
+		</div>
 	);
 };
 

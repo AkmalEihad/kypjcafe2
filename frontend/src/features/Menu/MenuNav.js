@@ -11,10 +11,10 @@ import { AiOutlineCheck } from "react-icons/ai";
 
 const MenuNav = () => {
 	const { cafe_id } = useParams();
-	const { data } = useFetch(`http://localhost:3500/menu/${cafe_id}`);
+	const { data } = useFetch(`http://localhost:3500/menu/customerMenu/${cafe_id}`);
 	const [selectedCategory, setSelectedCategory] = useState(null);
 
-	const uniqueCategories = ["All", ...new Set(data.map((item) => item.categories))];
+	const uniqueCategories = ["All", ...new Set(data.map((item) => item.is_available && item.categories))];
 
 	const handleClick = (category) => {
 		if (category === "All") {
@@ -23,6 +23,7 @@ const MenuNav = () => {
 			setSelectedCategory(category);
 		}
 	};
+	console.log(data)
 
 	const filteredData = selectedCategory ? data.filter((item) => item.categories === selectedCategory) : data;
 
@@ -71,6 +72,8 @@ const MenuNav = () => {
 						<p>Completed</p>
 					</div>
 				</div>
+
+				<h1 className="font-bold text-3xl">{data.length > 0 ? data[0].cafe_name : null}</h1>
 
 				<nav className="px-4 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r  from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg w-fit m-auto">
 					<ul className="flex justify-center items-center gap-4 hover:cursor-pointer">

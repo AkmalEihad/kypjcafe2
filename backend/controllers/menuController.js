@@ -3,6 +3,8 @@ const pool = require("../config/dbConn");
 
 const getAllItemBasedCafe = asyncHandler(async (req, res) => {
 	const { cafe_id, seller_id } = req.params;
+	console.log(cafe_id)
+	console.log(seller_id)
 
 	// Check if either cafe_id or seller_id is provided in the request params
 	if (!cafe_id && !seller_id) {
@@ -13,8 +15,33 @@ const getAllItemBasedCafe = asyncHandler(async (req, res) => {
 	let queryParams;
 
 	// Add logic for seller_id if needed
-	query = "SELECT * FROM Menu AS M INNER JOIN Cafe AS C ON M.cafe_id = C.cafe_id WHERE C.seller_id = $1 OR C.cafe_id = $1";
-	queryParams = [seller_id];
+	query = "SELECT * FROM Menu AS M INNER JOIN Cafe AS C ON M.cafe_id = C.cafe_id WHERE C.seller_id = $1 OR C.cafe_id = $2";
+	queryParams = [seller_id, cafe_id];
+
+	const allItemBasedCafe = await pool.query(query, queryParams);
+
+	if (!allItemBasedCafe.rows.length) {
+		return res.status(400).json({ message: "No item found" });
+	}
+
+	res.json(allItemBasedCafe.rows);
+});
+
+const getAllItemBasedCafeCustomer = asyncHandler(async (req, res) => {
+	const { cafe_id } = req.params;
+	console.log(cafe_id)
+
+	// Check if either cafe_id or seller_id is provided in the request params
+	if (!cafe_id) {
+		return res.status(400).json({ message: "Please provide cafe_id or seller_id" });
+	}
+
+	let query;
+	let queryParams;
+
+	// Add logic for seller_id if needed
+	query = "SELECT * FROM Menu AS M INNER JOIN Cafe AS C ON M.cafe_id = C.cafe_id WHERE C.cafe_id = $1";
+	queryParams = [cafe_id];
 
 	const allItemBasedCafe = await pool.query(query, queryParams);
 
@@ -133,6 +160,7 @@ const deletItem = asyncHandler(async (req, res) => {
 
 module.exports = {
 	getAllItemBasedCafe,
+	getAllItemBasedCafeCustomer,
 	getAllItem,
 	getItemBasedItemId,
 	createItemBasedCafe,

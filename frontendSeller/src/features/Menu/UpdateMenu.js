@@ -152,6 +152,7 @@ const UpdateMenu = () => {
                             id="itemImage"
                             name="itemImage"
                             type="file" // Specify accepted file types if needed
+                            accept="image/jpg, image/jpeg, image/png"
                             onChange={(e) => setImage(e.target.files[0])}
                             className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
                         />

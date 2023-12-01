@@ -4,7 +4,7 @@ const pool = require('../config/dbConn');
 const getAllOrder = asyncHandler(async (req, res) => {
   const { seller_id } = req.params
 
-  const allOrderQuery = 'SELECT m.item_id, m.item_name, m.price, o.order_id, o.order_date, oi.order_item_id, oi.quantity, c.name AS customer_name, cf.cafe_id, s.seller_id FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id INNER JOIN Seller As s ON cf.seller_id = s.seller_id WHERE o.order_completed = true AND s.seller_id = $1';
+  const allOrderQuery = 'SELECT m.item_id, m.item_name, m.price, o.order_id, o.order_date, oi.order_item_id, oi.quantity, c.name AS customer_name, cf.cafe_id, s.seller_id FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id INNER JOIN Seller As s ON cf.seller_id = s.seller_id WHERE o.order_completed = true AND s.seller_id = $1 ORDER BY o.order_id DESC';
   const allOrder = await pool.query(allOrderQuery,[seller_id])
 
   if (!allOrder.rows.length) {
@@ -15,7 +15,7 @@ const getAllOrder = asyncHandler(async (req, res) => {
 
 const getAllOrderByCustId = asyncHandler(async (req, res) => {
   const { customer_id } = req.params
-  const allOrderById = 'SELECT m.item_id, m.item_name, m.price, o.order_id, o.order_date, oi.order_item_id, oi.quantity, c.name AS customer_name, cf.cafe_id, c.customer_id FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id WHERE o.order_completed = true AND c.customer_id = $1';
+  const allOrderById = 'SELECT m.item_id, m.item_name, m.price, o.order_id, o.order_date, oi.order_item_id, oi.quantity, c.name AS customer_name, cf.cafe_id, c.customer_id FROM Menu AS m INNER JOIN OrdersItems AS oi ON m.item_id = oi.item_id INNER JOIN Orders AS o ON oi.order_id = o.order_id INNER JOIN Customer AS c ON o.customer_id = c.customer_id INNER JOIN Cafe AS cf ON m.cafe_id = cf.cafe_id WHERE o.order_completed = true AND c.customer_id = $1 ORDER BY o.order_id DESC';
   const allOrder = await pool.query(allOrderById, [customer_id])
 
   if (!allOrder.rows.length) {

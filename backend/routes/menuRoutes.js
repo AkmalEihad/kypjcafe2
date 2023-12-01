@@ -22,6 +22,9 @@ router.route('/')
 router.route('/:seller_id')
     .get(menuController.getAllItemBasedCafe)
 
+router.route('/customerMenu/:cafe_id')
+    .get(menuController.getAllItemBasedCafeCustomer)
+
 router.route('/item/:item_id')
     .get(menuController.getItemBasedItemId)
     .delete(menuController.deletItem)

@@ -16,6 +16,8 @@ const upload = multer({ storage: storage })
 
 router.route('/')
     .get(cafeController.getAllCafe)
+
+router.route('/:cafe_id')
     .delete(cafeController.deleteCafe)
 
 router.route('/update')

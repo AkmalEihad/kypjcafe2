@@ -13,6 +13,7 @@ import CreateCafe from "./features/Cafe/CreateCafe";
 import Menu from "./features/Menu/Menu";
 import UpdateMenu from "./features/Menu/UpdateMenu";
 import CreateMenu from "./features/Menu/CreateMenu";
+import Missing from "./features/Missing/Missing";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="menu/edit/:item_id" element={<UpdateMenu />} />
         <Route path="menu/create-menu" element={<CreateMenu />} />
       </Route>
+      <Route path="*" element={<Missing/>}/>
     </Routes>
   );
 }

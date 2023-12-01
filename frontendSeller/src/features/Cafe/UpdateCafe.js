@@ -165,8 +165,9 @@ const UpdateCafe = () => {
 								id="image"
 								name="cafeImage"
 								type="file" // Specify accepted file types if needed
+                accept="image/jpeg, image/png"
 								onChange={(e) => setImage(e.target.files[0])}
-								className="flex rounded-3xl bg-zinc-200 w-full focus:outline-none file-input file-input-bordered file-input-primary w-full max-w-xs"
+								className="flex rounded-3xl bg-zinc-200 focus:outline-none file-input file-input-bordered file-input-primary w-full max-w-xs"
 							/>
         </div>
 

@@ -13,6 +13,8 @@ const Profile = () => {
       }
     
       const customer = data[0];
+
+      const maskPassword = (password) => '*'.repeat(password.length);
     
       return (
         <div>
@@ -34,7 +36,7 @@ const Profile = () => {
               </div>
               <div className="flex gap-1">
                 <p>Password:</p>
-                <p>{customer.password}</p>
+                <p>{maskPassword(customer.password)}</p>
               </div>
               <div className="flex gap-1">
                 <p>Faculty:</p>

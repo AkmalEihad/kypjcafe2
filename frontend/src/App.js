@@ -12,6 +12,7 @@ import OrderHistory from "./features/Order/OrderHistory";
 import OrderHistoryDetail from "./features/Order/OrderHistoryDetail";
 import MenuNav from "./features/Menu/MenuNav";
 import OrderPending from "./features/Order/OrderPending";
+import Missing from "./features/Missing/Missing";
 
 function App() {
   return (
@@ -25,12 +26,12 @@ function App() {
 
         <Route path="order/:order_id" element={<ConfirmOrder />} />
         <Route path="orderPending/:customer_id" element={<OrderPending />} />
-        <Route path="cancelOrder" element={<CancelOrder />} />
         <Route path="profile" element={<Profile />} />
         <Route path="change-profile" element={<ChangeProfile />} />
         <Route path="recentOrder" element={<OrderHistory />} />
         <Route path="recentOrder/:order_id" element={<OrderHistoryDetail />} />
       </Route>
+      <Route path="*" element={<Missing/>}/>
     </Routes>
   );
 }

@@ -7,7 +7,7 @@ router.route('/')
     .post(loginLimiter, authController.login)
 
 router.route('/seller')
-    .post(authController.loginSeller)
+    .post(loginLimiter, authController.loginSeller)
 
 router.route('/refresh')
     .get(authController.refresh)

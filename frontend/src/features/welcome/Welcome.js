@@ -3,7 +3,7 @@ import CafeFeed from "../Cafe/CafeFeed";
 import Header from "../../components/Header";
 import { BsArrowDownShort } from "react-icons/bs";
 import useFetch from "../../hooks/useFetch";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
 	const { data } = useFetch("http://localhost:3500/menu");
@@ -29,8 +29,6 @@ const Welcome = () => {
 		<div>
 			<div className=" bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')]">
 				<Header />
-				
-				
 				<div className="flex flex-col items-start justify-center max-w-5xl gap-10 m-auto p-4 widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height">
 					<div className="flex flex-col sm:flex-row">
 						<div className=" text-white">
@@ -49,13 +47,15 @@ const Welcome = () => {
 						<h1 className="text-xl text-white">Recommended Menu</h1>
 						<div className="carousel w-96 gap-2">
 							{shuffledItems.map((item) => (
-								<Link to={`menu/${item.cafe_id}`} className="carousel-item flex flex-col px-3 py-3 font-medium text-white bg-gradient-to-r  from-slate-400 to-slate-500 rounded-3xl drop-shadow-lg gap-4"><div key={item.item_id} >
-									<img src={`http://localhost:3500/images/${item.item_image_url}`} alt="" className="rounded-2xl w-52 max-h-[116px] m-auto" />
-									<div className="flex justify-between items-center">
-										<p>{item.item_name}</p>
-										<p>RM{item.price}</p>
+								<Link to={`menu/${item.cafe_id}`} className="carousel-item flex flex-col px-3 py-3 font-medium text-white bg-gradient-to-r  from-slate-400 to-slate-500 rounded-3xl drop-shadow-lg gap-4">
+									<div key={item.item_id}>
+										<img src={`http://localhost:3500/images/${item.item_image_url}`} alt="" className="rounded-2xl w-52 max-h-[116px] m-auto" />
+										<div className="flex justify-between items-center">
+											<p>{item.item_name}</p>
+											<p>RM{item.price}</p>
+										</div>
 									</div>
-								</div></Link>
+								</Link>
 							))}
 						</div>
 					</div>
