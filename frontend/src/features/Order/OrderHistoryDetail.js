@@ -23,16 +23,17 @@ const OrderHistoryDetail = () => {
 	});
 
 	return (
-		<div>
-			<Header />
+		<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
+            <Header />
 			<div className="flex flex-col mb-10 justify-center text-black font-Rubik items-center gap-10">
-				<h1 className="mt-10 flex text-3xl justify-center font-bold text-zinc-900 font-Rubik items-center gap-10">Order Detail</h1>
-				<div className="flex text-xl justify-center text-zinc-900 font-Rubik items-center gap-2">
+				<h1 className="mt-10 flex text-3xl justify-center font-bold text-white font-Rubik items-center gap-10">Order Detail</h1>
+				<div className="flex text-xl justify-center text-white font-Rubik items-center gap-2">
 					<h2>Your number is </h2>
+					
 					<p>{data.length > 0 ? data[0].order_id : "No order ID found"}</p>
 				</div>
 				<div className="min-w-full">
-					<div className="max-w-xl m-auto rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer">
+					<div className="max-w-xl m-auto rounded-lg bg-white p-4">
 						{data.map((i) => (
 							<div key={i.order_item_id}>
 								<p>{i.item_name}</p>

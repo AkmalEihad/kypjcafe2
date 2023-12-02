@@ -60,17 +60,18 @@ const UpdateMenu = () => {
     };
 
     return (
-        <div>
-            <Header/>
+        <div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
+            <Header />
+           
         <div id="cafe" className="flex flex-col justify-center items-center p-4 text-zinc-900 font-Rubik antialiased">
-            <h1 className="text-zinc-900 font-medium text-center text-3xl mb-8">Update Menu</h1>
+            <h1 className="text-white font-medium text-center text-3xl mb-8">Update Menu</h1>
             <form
                 action=""
                 encType='multipart/form-data'
                 className="grid justify-center items-center grid-rows-2 gap-10 drop-shadow-lg"
                 onSubmit={handleSubmit}>
 
-                <div className='flex gap-1'>
+                <div className='flex gap-1 text-white'>
                     <p>Is item available?</p>
                     <input type="checkbox" className="toggle toggle-success" checked={is_available} // Set the initial state based on the "is_open" status from the database
                         onChange={(e) => {
@@ -144,6 +145,7 @@ const UpdateMenu = () => {
 
                         <label
                             htmlFor="itemImage"
+                            className='text-white'
                             onClick={() => {
                                 document.getElementById("itemImage").focus();
                             }}
@@ -154,7 +156,7 @@ const UpdateMenu = () => {
                             type="file" // Specify accepted file types if needed
                             accept="image/jpg, image/jpeg, image/png"
                             onChange={(e) => setImage(e.target.files[0])}
-                            className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
+                            className="flex rounded-3xl bg-zinc-200 w-full focus:outline-none file-input file-input-bordered file-input-primary w-full max-w-xs"
                         />
                     </div>
 
@@ -163,7 +165,7 @@ const UpdateMenu = () => {
                 <input
                     type="submit"
                     value="Update"
-                    className="w-32 px-3 py-2 m-auto text-zinc-900 transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-zinc-900 bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700" />
+                    className="flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-green-500 to-lime-700 hover:cursor-pointer" />
 
             </form>
 

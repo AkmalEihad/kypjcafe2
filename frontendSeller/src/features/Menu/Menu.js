@@ -68,7 +68,7 @@ const Menu = () => {
 			<div className="flex justify-center items-center gap-4 p-4 max-w-full font-Rubik antialiased">
 				{hasCafe ? data.length === 0 ? (
 					// Display the "Create Menu" button when data is empty
-					<div className="text-center">
+					<div className="text-center text-white">
 						<p>No menu items found. Create your menu now!</p>
 						<Link to="create-menu">
 							<button className="px-4 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Create Menu</button>
@@ -88,9 +88,7 @@ const Menu = () => {
 								<button className="px-5 py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-600 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r from-slate-600 to-slate-800 rounded-3xl drop-shadow-lg">Edit</button>
 							</Link>
 
-							<button className="px-2 py-2 ml-14 mt-4 font-medium text-white hover:text-[#FF0000] transition duration-300 ease-in-out delay-60 hover:-translate-y-1  hover:scale-102" onClick={() => handleDelete(item.item_id)}>
-								Delete
-							</button>
+							<button className="rounded-3xl px-2 py-2 ml-14 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60  hover:bg-gradient-to-r hover:-translate-y-1 from-red-500 to-red-800 hover:scale-102" onClick={() => handleDelete(item.item_id)}>Delete</button>
 						</div>
 					))
 				) : (<h1>You Need To Create Cafe First Before Create A Menu!</h1>)}

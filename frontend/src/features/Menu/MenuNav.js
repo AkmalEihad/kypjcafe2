@@ -28,8 +28,8 @@ const MenuNav = () => {
 	const filteredData = selectedCategory ? data.filter((item) => item.categories === selectedCategory) : data;
 
 	return (
-		<div>
-			<Header />
+		<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
+            <Header />
 
 			<div className="flex flex-col justify-center items-center">
 				<div className="flex flex-col w-[400px] mb-6">
@@ -66,7 +66,7 @@ const MenuNav = () => {
 							</div>
 						</div>
 					</div>
-					<div className="flex justify-between items-center">
+					<div className="flex justify-between text-white items-center">
 						<p>Order Placed</p>
 						<p>In Progress</p>
 						<p>Completed</p>

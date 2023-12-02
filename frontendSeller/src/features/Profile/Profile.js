@@ -18,9 +18,9 @@ const Profile = () => {
 	return (
 		<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
 			<Header />
-			<div className="flex justify-center items-center flex-col font-Rubik mt-10 text-zinc-900 ">
-				<h1 className="text-white text-3xl mb-10">Seller Profile</h1>
-				<div className="bg-zinc-300 card w-96 shadow-xl flex flex-col gap-4 px-5 py-5">
+			<div className="flex justify-center mb-10 items-center flex-col font-Rubik text-zinc-900 ">
+				<h1 className="text-white text-3xl mb-10">Profile Information</h1>
+				<div className="card w-96 bg-white bg-opacity-80 shadow-xl flex flex-col gap-4 px-5 py-5">
 					<div className="flex gap-1">
 						<p>ID:</p>
 						<p>{seller.seller_id}</p>
@@ -43,7 +43,7 @@ const Profile = () => {
 					</div>
 				</div>
 				<Link to="/welcome/change-profile">
-					<button className="flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]">Change Profile</button>
+					<button className="flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]">Manage Profile</button>
 				</Link>
 			</div>
 		</div>

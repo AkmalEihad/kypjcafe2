@@ -74,7 +74,7 @@ const OrderDetail = () => {
 	};
 
 	return (
-		<div>
+		<div lassName="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
 			<Header />
 			<div className="flex mb-10 flex-col justify-center text-black font-Rubik items-center gap-10">
 				<h1 className="mt-10 flex text-3xl justify-center text-zinc-900 font-Rubik items-center gap-10">{data.length > 0 ? data[0].customer_name : null } Order Detail</h1>

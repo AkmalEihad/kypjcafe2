@@ -47,9 +47,9 @@ const Welcome = () => {
 							))
 						) : (
 							// Show a button to create a cafe if the seller doesn't have one
-							<div className="flex flex-col">
+							<div className="text-white">
 								<p>You don't have a cafe. Create one now!</p>
-								<button onClick={() => navigate("/welcome/create-cafe")} className="text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-[#6859ea] to-[#6acbe0]">
+								<button onClick={() => navigate("/welcome/create-cafe")} className="px-4 flex justify-center items-center py-2 mt-4 font-medium text-white transition duration-300 ease-in-out delay-60 bg-slate-700 hover:-translate-y-1 hover:scale-105 hover:bg-gradient-to-r  from-slate-700 to-slate-800 rounded-3xl drop-shadow-lg">
 									Create Cafe
 								</button>
 							</div>

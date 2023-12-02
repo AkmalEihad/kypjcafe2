@@ -7,11 +7,12 @@ const InProgress = () => {
 	return (
 		<Link to={`/welcome/orderPending/${customer_id}`}>
 			<div className="toast toast-start">
-				<div className="alert alert-info">
+				<div className="alert alert-info text-zinc-900 rounded-3xl">
 					<h1>Your Order is in progress</h1>
 				</div>
 			</div>
 		</Link>
+		
 	);
 };
 

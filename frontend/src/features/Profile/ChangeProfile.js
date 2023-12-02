@@ -84,11 +84,11 @@ const ChangeProfile = () => {
 	};
 
 	return (
-		<div>
+		<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
 			<Header />
 			<div className="flex justify-center mb-10 items-center flex-col font-Rubik text-zinc-900">
-				<h1 className="text-zinc-900 text-3xl mb-10">Manage Profile</h1>
-				<div className="card w-96 bg-gradient-to-r from-slate-500 to-slate-800 shadow-xl flex flex-col gap-4 px-5 py-5">
+				<h1 className="text-white text-3xl mb-10">Manage Profile</h1>
+				<div className="px-4 py-2 mt-4 font-medium text-zinc-900 transition duration-300 ease-in-out delay-60 bg-gradient-to-r  from-slate-300 to-slate-500 rounded-3xl drop-shadow-lg card w-96 bg-opacity-80 shadow-xl flex flex-col gap-4 px-5 py-5">
 					<form action="">
 						<div>
 							<label htmlFor="name">Name:</label>

@@ -69,7 +69,8 @@ const ConfirmOrder = () => {
 	};
 
 	return (
-		<div>
+			<div className="widescreen:section-min-height tallscreen:section-min-height tallscreenMax:section-min-height bg-cover bg-blend-multiply bg-slate-500 bg-no-repeat bg-[url('https://www.v2.kypj.edu.my/wp-content/uploads/2020/04/Kafetaria-05.jpg')] pb-10">
+           
 			<Header />
 			{inProgress ? (
 				<div className="flex flex-col justify-center text-black font-Rubik items-center p-6">
@@ -107,14 +108,14 @@ const ConfirmOrder = () => {
 								</div>
 							</div>
 						</div>
-						<div className="flex justify-between items-center">
+						<div className="flex justify-between text-white items-center">
 							<p>Order Placed</p>
 							<p>In Progress</p>
 							<p>Completed</p>
 						</div>
 					</div>
 
-					<div className="flex justify-center items-center mt-8 text-zinc-900">
+					<div className="flex justify-center items-center mt-8 text-white">
 						<h2>Your number is </h2>
 						<p className="font-bold text-2xl">&nbsp;&nbsp;#{data.length > 0 ? data[0].order_id : "No order ID found"}</p>
 					</div>
@@ -188,7 +189,7 @@ const ConfirmOrder = () => {
 					</div>
 
 					<div>
-						<h1 className="text-center text-3xl">Order Completed!</h1>
+						<h1 className="text-center text-white text-3xl">Order Completed!</h1>
 
 						<div className="flex flex-col gap-4">
 							<div className="mt-8 text-black rounded-lg bg-white p-4 transition duration-300 ease-in-out delay-60 hover:-translate-y-1 hover:scale-105 hover:cursor-pointer">

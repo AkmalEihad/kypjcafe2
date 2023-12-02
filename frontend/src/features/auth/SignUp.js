@@ -62,8 +62,9 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className="flex page bg-gradient-to-r from-slate-200 to-slate-500 font-Rubik text-zinc-900 antialiased">
-			<img src="https://i.pinimg.com/564x/f1/e2/82/f1e282268c878b2e7897b4e4528b1bb1.jpg" alt="" className="h-screen drop-shadow-lg" />
+		<div className='flex page bg-gradient-to-r from-slate-200 to-slate-500 font-Rubik text-zinc-900 antialiased'>
+						<img src="gmbr_makanan.jpg" alt="" className="h-screen drop-shadow-lg " />
+
 
 			<div className="flex flex-col items-start justify-center m-auto">
 				<h1 className="mb-10 text-5xl font-bold text-center">Sign Up</h1>

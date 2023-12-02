@@ -45,7 +45,7 @@ const Welcome = () => {
 					</div>
 					<div className="">
 						<h1 className="text-xl text-white">Recommended Menu</h1>
-						<div className="carousel w-96 gap-2">
+						<div className="carousel gap-2">
 							{shuffledItems.map((item) => (
 								<Link to={`menu/${item.cafe_id}`} className="carousel-item flex flex-col px-3 py-3 font-medium text-white bg-gradient-to-r  from-slate-400 to-slate-500 rounded-3xl drop-shadow-lg gap-4">
 									<div key={item.item_id}>

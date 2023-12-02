@@ -69,6 +69,8 @@ const Login = () => {
 			<img src="gmbr_makanan.jpg" alt="" className="h-screen drop-shadow-lg " />
 
 			<div className="flex flex-col items-start justify-center m-auto">
+
+			  <h1 className="font-bold antialiased text-5xl text-center mb-2">Welcome User</h1>
 				<h1 className="antialiased mb-10 text-4xl font-bold text-center">Sign In</h1>
 
 				{lock ? (

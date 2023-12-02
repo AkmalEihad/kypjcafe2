@@ -167,14 +167,14 @@ const UpdateCafe = () => {
 								type="file" // Specify accepted file types if needed
                 accept="image/jpeg, image/png"
 								onChange={(e) => setImage(e.target.files[0])}
-								className="flex rounded-3xl bg-zinc-200 focus:outline-none file-input file-input-bordered file-input-primary w-full max-w-xs"
+								className="flex rounded-3xl text-white bg-zinc-200 focus:outline-none file-input file-input-bordered file-input-primary w-full max-w-xs"
 							/>
         </div>
 
         <input
           type="submit"
           value="Update"
-          className="w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700"
+          className="flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-green-500 to-lime-700 hover:cursor-pointer"
         />
       </form>
     </div>

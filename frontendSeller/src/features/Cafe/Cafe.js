@@ -64,7 +64,7 @@ const Cafe = () => {
 
 				<UpdateCafe />
 
-				<button onClick={handleDelete} className="flex justify-center m-auto font-Rubik w-32 px-5 py-2 transition duration-300 ease-in-out text-zinc-900 rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-red-500 hover:to-red-900">
+				<button onClick={handleDelete} className="flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-red-500 to-red-800">
 					Delete Cafe
 				</button>
 			</div>

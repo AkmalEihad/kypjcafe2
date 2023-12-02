@@ -64,7 +64,8 @@ const Login = () => {
 
 	return (
 		<div className="flex page bg-gradient-to-r from-slate-200 to-slate-500 font-Rubik text-zinc-900 antialiased">
-			<img src="https://i.pinimg.com/750x/0a/d3/41/0ad341e9715994f5b7266e0a5062a46a.jpg" alt="" className="h-screen drop-shadow-lg" />
+						<img src="gmbr_makanan.jpg" alt="" className="h-screen drop-shadow-lg " />
+
 
 			<div className="flex flex-col items-start justify-center m-auto">
 				<h1 className="font-bold antialiased text-5xl text-center mb-2">Welcome Seller</h1>

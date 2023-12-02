@@ -48,7 +48,7 @@ const CreateMenu = () => {
 			<Header/>
 			<h1 className="mt-10 text-white font-Rubik text-2xl text-center">Create Menu</h1>
 
-			<form action="" encType="multipart/form-data" className="grid justify-center items-center grid-rows-2 mt-20 font-bold gap-10 drop-shadow-lg font-Rubik" onSubmit={handleSubmit}>
+			<form action="" encType="multipart/form-data" className="grid justify-center items-center grid-rows-2 mt-20  gap-10 drop-shadow-lg font-Rubik" onSubmit={handleSubmit}>
 
 				<div className="relative">
 					<input id="item_name" type="text" value={item_name} onChange={(e) => setItemName(e.target.value)} className="w-full px-3 py-2 bg-white text-zinc-900 border-gray-300 rounded-3xl focus:border-white-500 focus:outline-none" required />
@@ -94,11 +94,12 @@ const CreateMenu = () => {
 					<div className="mt-10 text-white max-w-sm item-center justify-center m-auto">
 						<label
 							htmlFor="itemImage"
+              className="text-white relative left-3 "
 							onClick={() => {
 								document.getElementById("itemImage").focus();
 							}}
 						>
-							Put Image
+							Food Image
 						</label>
 
 						<input
@@ -107,12 +108,12 @@ const CreateMenu = () => {
 							type="file" // Specify accepted file types if needed
 							accept="image/jpeg, image/jpg, image/png"
 							onChange={(e) => setImage(e.target.files[0])}
-							className="border border-gray-300 w-full py-2 px-3 rounded-md focus:border-black focus:outline-none"
+							className="flex rounded-3xl text-zinc-900 bg-zinc-200 w-full focus:outline-none file-input file-input-bordered file-input-primary w-full max-w-xs"
 						/>
 					</div>
 				</div>
 
-				<input type="submit" value="Create" className="text-zinc-900 w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 hover:text-black bg-gradient-to-r from-yellow-200 to-yellow-500 hover:from-lime-200 hover:to-green-700" />
+				<input type="submit" value="Create" className="flex justify-center mt-5 text-white text-sm w-32 px-3 py-2 m-auto transition duration-300 ease-in-out rounded-3xl delay-60 hover:-translate-y-1 hover:scale-110 bg-[#6859ea] hover:bg-gradient-to-r from-green-500 to-lime-700 hover:cursor-pointer" />
 			</form>
 		</div>
 	);
